@@ -1,0 +1,24 @@
+<svg width="117" height="117" viewBox="0 0 117 117" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2001_4)">
+<path d="M54.4707 20.8676L58.437 17L59.6332 17.9822L57.8704 19.7012H61.459L65.6142 23.753H52.8968V22.034H62.0256L60.8294 20.8676H54.4707Z" fill="url(#paint0_linear_2001_4)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M53.9671 25.2263H63.7255V49.6598L67.2511 52.4837V38.4253H72.6025V31.1812L87.9012 46.713H76.9466V53.3432H95.1413L101.437 60.0348L86.705 74.7685H80.5981V80.4778L73.1062 88.6428V61.2012H68.6362V91.5895L60.3887 100V85.0821C60.3887 85.0821 59.2555 83.7929 57.8075 83.7929C56.3595 83.7929 55.4781 85.0821 55.4781 85.0821V100L47.2306 91.5895V61.2012H42.9495V88.6428L19.0886 62.4904H27.7138L34.7021 69.4889V60.2189H15.5L32.8133 42.0473H42.3199V36.0925H40.2423L46.5381 29.5851H49.3082V48.8617H37.2833L32.8133 53.2204H50.0007L53.9671 48.8617V25.2263ZM80.5981 61.2012H89.601L83.3682 67.8928H80.5981V61.2012ZM60.1369 76.426H56.1076V59.1139C56.1076 59.1139 56.989 57.9475 58.1223 57.9475C59.2555 57.9475 60.1369 59.1139 60.1369 59.1139V76.426Z" fill="url(#paint1_linear_2001_4)"/>
+</g>
+<rect x="2.12132" y="59.2222" width="80.7528" height="78.7101" transform="rotate(-45 2.12132 59.2222)" stroke="url(#paint2_linear_2001_4)" stroke-width="3"/>
+<defs>
+<linearGradient id="paint0_linear_2001_4" x1="58.4685" y1="17" x2="58.4685" y2="100" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8A5F00"/>
+<stop offset="1" stop-color="#F0A500"/>
+</linearGradient>
+<linearGradient id="paint1_linear_2001_4" x1="58.4685" y1="17" x2="58.4685" y2="100" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8A5F00"/>
+<stop offset="1" stop-color="#F0A500"/>
+</linearGradient>
+<linearGradient id="paint2_linear_2001_4" x1="41.8764" y1="59.2222" x2="41.8764" y2="140.932" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8A5F00"/>
+<stop offset="1" stop-color="#F0A500"/>
+</linearGradient>
+<clipPath id="clip0_2001_4">
+<rect width="86" height="83" fill="white" transform="translate(15.5 17)"/>
+</clipPath>
+</defs>
+</svg>
