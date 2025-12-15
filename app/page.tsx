@@ -25,19 +25,34 @@ export default function Home() {
     <>
       <div className="grid gap-4 lg:grid-cols-3 lg:grid-rows-2 container my-4">
         {finalProductsList.slice(0, 3).map((product) => (
-          <ProductCard key={product.id} className={product.className} />
+          <ProductCard
+            key={product.id}
+            className={product.className}
+            title={product.title}
+            features={product.features}
+          />
         ))}
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3 lg:grid-rows-2 container my-4">
         {finalProductsList.slice(3, 6).map((product) => (
-          <ProductCard key={product.id} className={product.className} />
+          <ProductCard
+            key={product.id}
+            className={product.className}
+            title={product.title}
+            features={product.features}
+          />
         ))}
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3 lg:grid-rows-6 container my-4">
         {finalProductsList.slice(6).map((product) => (
-          <ProductCard key={product.id} className={product.className} />
+          <ProductCard
+            key={product.id}
+            className={product.className}
+            title={product.title}
+            features={product.features}
+          />
         ))}
       </div>
     </>
