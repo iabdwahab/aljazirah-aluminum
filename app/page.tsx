@@ -1,3 +1,4 @@
+import HomeHeroSection from "@/components/HomeHeroSection";
 import ProductCard from "@/components/product_card/ProductCard";
 import { productsList } from "@/local_data/products";
 
@@ -23,6 +24,7 @@ export default function Home() {
 
   return (
     <>
+      <HomeHeroSection />
       <div className="grid gap-4 lg:grid-cols-3 lg:grid-rows-2 container my-4">
         {finalProductsList.slice(0, 3).map((product) => (
           <ProductCard
