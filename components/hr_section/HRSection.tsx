@@ -1,5 +1,6 @@
 import { HRSectionCardInterface } from "@/types/hrSectionCards";
 import HRSectionCard from "./HRSectionCard";
+import HRSectionHeading from "./HRSectionHeading";
 
 export default async function HRSection() {
   const cardsResponse = await fetch(
@@ -8,10 +9,13 @@ export default async function HRSection() {
   const cardsList = await cardsResponse.json();
 
   return (
-    <section className="grid lg:grid-cols-2 gap-6 container my-4">
-      {cardsList.map((card: HRSectionCardInterface, index: number) => (
-        <HRSectionCard key={index} data={card} />
-      ))}
+    <section className="container my-14">
+      <HRSectionHeading />
+      <div className="grid lg:grid-cols-2 gap-6 mt-14">
+        {cardsList.map((card: HRSectionCardInterface, index: number) => (
+          <HRSectionCard key={index} data={card} />
+        ))}
+      </div>
     </section>
   );
 }
