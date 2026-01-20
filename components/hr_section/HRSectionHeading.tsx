@@ -13,21 +13,19 @@ export default async function HRSectionHeading() {
   }[] = Object.values(sectionData?.acf?.statistics);
 
   return (
-    <div className="grid lg:grid-cols-2 gap-10">
+    <div className="grid xl:grid-cols-2 lg:gap-10">
       <div>
         <SectionTitle title={sectionData?.acf?.title} />
         <SectionDescription description={sectionData?.acf?.description} />
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="flex gap-8 flex-wrap justify-center xl:grid xl:grid-cols-3">
         {statisticsList.map((statistic, index) => (
-          <div key={index} className="mt-6">
+          <div key={index} className="mt-6 text-center">
             <h3 className="text-[164px] text-[#D19101]  leading-35">
               {statistic.number.padStart(2, "0")}
             </h3>
-            <p className="font-medium text-[#D19101] text-center">
-              {statistic.text}
-            </p>
+            <p className="font-medium text-[#D19101]">{statistic.text}</p>
           </div>
         ))}
       </div>
