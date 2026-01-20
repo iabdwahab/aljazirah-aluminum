@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [new URL("http://aljazirah.local/wp-content/uploads/**")],
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;

@@ -1,39 +1,32 @@
+import { HRSectionCardInterface } from "@/types/hrSectionCards";
 import Image from "next/image";
 
-export default function HRSectionCard() {
+interface OurWorkCardProps {
+  data: HRSectionCardInterface;
+}
+
+export default function HRSectionCard({ data }: OurWorkCardProps) {
+  const { acf } = data;
+  const { icon, title, description } = acf;
+
+  console.log(data);
+
   return (
     <article className="px-6 pt-9 pb-18 rounded-[27px] border border-[rgba(211,211,211,1)]">
       <Image
-        src="/hr_section/shield-icon.png"
-        alt="HR Section Image"
+        src={icon || "/hr_section/shield-icon.png"}
+        alt="صورة أيقونة القسم"
         className="w-25 h-25 mb-3"
         width={1600}
         height={1600}
       />
 
-      <h3 className="text-[rgba(209,145,1,1)] font-bold mb-3">
-        قسم الإدارة والمبيعات
-      </h3>
+      <h3 className="text-[rgba(209,145,1,1)] font-bold mb-3">{title}</h3>
 
-      <div className="leading-8.25 text-[rgba(41,41,41,1)] space-y-3">
-        <p>
-          قسم الإدارة ويقوم فيها المدير العام بوضع الخطط الإستراتيجية وخطط
-          الرقابة والتطوير و السياسات العامة للمصنع. ويقوم المدير التنفيذي
-          بمتابعة قسم الهندسة ومدير الإنتاج وقسم المشتريات وأيضا قسم المبيعات مع
-          وضع السياسات التسعيرية المناسبة لكل مرحلة حسب متطلبات السوق وقسم
-          المبيعات يتكون من 5 موظفين على اعلى كفاءة وخبر ة طويلة فى مجال
-          المبيعات ومعرفة ظروف وطبيعة السوق مع القدرة على تقديم الحلول المناسبة
-          للمشاكل الانشائية ويتم متابعة القسم من المدير التنفيذي عن طريق عقد
-          اجتماعات مستمرة لوضع الاليات المناسبة للعمل وفق التقارير المقدمة من
-          موظفي المبيعات لوضع سياسات تسعيرة تنافسية ومناسبة للسوق.
-        </p>
-        <p>
-          ثانيا: قسم الرقابة والجودة والسلامة: ويقوم أخصائي الجودة بمتابعة جميع
-          مراحل الإنتاج ومدى تطابقها مع المعايير والمواصفات للجودة أثناء جميع
-          مراحل الإنتاج والفحوصات والتركيبات يتم التأكد من السلامة من خلال
-          الأشراف على العمالة والإنتاج ومطابقتها للمواصفات القياسية الدولية.
-        </p>
-      </div>
+      <div
+        className="leading-8.25 text-[rgba(41,41,41,1)] space-y-3"
+        dangerouslySetInnerHTML={{ __html: description }}
+      ></div>
     </article>
   );
 }

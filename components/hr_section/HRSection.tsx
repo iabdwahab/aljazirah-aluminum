@@ -8,9 +8,9 @@ export default async function HRSection() {
   const cardsList = await cardsResponse.json();
 
   return (
-    <section className="grid grid-cols-2 gap-6 container my-4">
+    <section className="grid lg:grid-cols-2 gap-6 container my-4">
       {cardsList.map((card: HRSectionCardInterface, index: number) => (
-        <HRSectionCard key={index} />
+        <HRSectionCard key={index} data={card} />
       ))}
     </section>
   );
