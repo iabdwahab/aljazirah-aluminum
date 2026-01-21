@@ -1,8 +1,8 @@
 import HomeHeroSection from "@/components/HomeHeroSection";
-import HRSection from "@/components/hr_section/HRSection";
-import HRSectionCard from "@/components/hr_section/HRSectionCard";
-import ProductCard from "@/components/product_card/ProductCard";
-import { productsList } from "@/local_data/products";
+import HRSection from "@/components/hr-section/HRSection";
+import HRSectionCard from "@/components/hr-section/HRSectionCard";
+import ProductCard from "@/components/product-card/ProductCard";
+import { productsList } from "@/local-data/products";
 
 export default function Home() {
   const productCardClassNames = [
