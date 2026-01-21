@@ -30,7 +30,7 @@ export default function Home() {
 
       <HRSection />
 
-      <div className="grid gap-4 lg:grid-cols-3 lg:grid-rows-2 container my-4">
+      <div className="container my-4 grid gap-4 lg:grid-cols-3 lg:grid-rows-2">
         {finalProductsList.slice(0, 3).map((product) => (
           <ProductCard
             key={product.id}
@@ -42,7 +42,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-3 lg:grid-rows-2 container my-4">
+      <div className="container my-4 grid gap-4 lg:grid-cols-3 lg:grid-rows-2">
         {finalProductsList.slice(3, 6).map((product) => (
           <ProductCard
             key={product.id}
@@ -54,7 +54,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-3 lg:grid-rows-6 container my-4">
+      <div className="container my-4 grid gap-4 lg:grid-cols-3 lg:grid-rows-6">
         {finalProductsList.slice(6).map((product) => (
           <ProductCard
             key={product.id}

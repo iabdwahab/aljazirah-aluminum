@@ -11,7 +11,7 @@ export default async function HRSection() {
   return (
     <section className="container my-14">
       <HRSectionHeading />
-      <div className="grid lg:grid-cols-2 gap-6 mt-14">
+      <div className="mt-14 grid gap-6 lg:grid-cols-2">
         {cardsList.map((card: HRSectionCardInterface, index: number) => (
           <HRSectionCard key={index} data={card} />
         ))}

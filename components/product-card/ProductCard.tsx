@@ -15,7 +15,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   return (
     <article
-      className={`${className} bg-[#F5F3F1] relative rounded-[27px] p-7`}
+      className={`${className} relative rounded-[27px] bg-[#F5F3F1] p-7`}
     >
       <div>
         <Image
@@ -23,13 +23,13 @@ export default function ProductCard({
           alt={title}
           width={500}
           height={300}
-          className="max-w-full w-75 max-h-80"
+          className="max-h-80 w-75 max-w-full"
         />
       </div>
 
       <div>
-        <h3 className="text-[#212121] font-bold text-2xl mb-3.5">{title}</h3>
-        <ol className="list-inside list-decimal text-[#000000] text-sm space-y-3.5">
+        <h3 className="mb-3.5 text-2xl font-bold text-[#212121]">{title}</h3>
+        <ol className="list-inside list-decimal space-y-3.5 text-sm text-[#000000]">
           {features.map((feature, index) => (
             <li key={index}>{feature}</li>
           ))}

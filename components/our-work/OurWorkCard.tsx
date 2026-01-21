@@ -2,19 +2,19 @@ import Image from "next/image";
 
 export default function OurWorkCard() {
   return (
-    <article className="max-h-125 h-125 grid grid-cols-2 overflow-hidden p-4 bg-gray-900 rounded-4xl">
+    <article className="grid h-125 max-h-125 grid-cols-2 overflow-hidden rounded-4xl bg-gray-900 p-4">
       <div className="relative">
         <Image
           src="/work/work-1.png"
           alt="Our Work 1"
-          className="w-full absolute right-10 rotate-15"
+          className="absolute right-10 w-full rotate-15"
           width={415}
           height={472}
         />
       </div>
 
-      <div className="text-[rgba(241,241,241,1)] pt-8">
-        <h3 className="font-bold text-2xl leading-15.25">
+      <div className="pt-8 text-[rgba(241,241,241,1)]">
+        <h3 className="text-2xl leading-15.25 font-bold">
           بــــــــاب زجاجـــــــي
         </h3>
         <p className="">

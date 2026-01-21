@@ -9,13 +9,13 @@ export default function AboutUsSectionTypeSection({
 }) {
   return (
     <section
-      className={` bg-reds-300 text-black overflow-hidden px-10 lg:px-18.75 pt-18.75 lg:pb-60 relative  my-4`}
+      className={`bg-reds-300 relative my-4 overflow-hidden px-10 pt-18.75 text-black lg:px-18.75 lg:pb-60`}
     >
       <div className="lg:max-w-3/5">
-        <h3 className="bg-linear-to-b from-[#8A5F00] to-[#F0A500] text-transparent bg-clip-text font-black text-4xl leading-15.25 mb-4">
+        <h3 className="mb-4 bg-linear-to-b from-[#8A5F00] to-[#F0A500] bg-clip-text text-4xl leading-15.25 font-black text-transparent">
           {data?.acf?.title || "من نحـــــــــــــــــــــــــــــــــــن"}
         </h3>
-        <p className="leading-6.75 mb-8">
+        <p className="mb-8 leading-6.75">
           {data?.acf?.description ||
             `
             منذ ما يقارب من نصف قرن من الالتزام بالجودة والارتقاء بالتصاميم، والتنوع في المنتجات والابتكارات، ومواكبة أحدث التطورات التي تتناسب مع المواصفات الخليجية. ولذلك يعد مصنع ألمنيوم الجزيرة من أهم المصانع التي يمكن الوثوق بها لالتزامها بالدرجة العالية من التصنيع والتركيب والتسليم ومن ثم الخدمة. لذا مازال مصنع ألمنيوم الجزيرة من أكبر الرواد في تلك الصناعة لجهوده المستمرة في تطوير الذات وتحسينها مما أدى إلى اكتسابنا الاحترام الفائق في عالم البناء والتشييد.
@@ -25,7 +25,7 @@ export default function AboutUsSectionTypeSection({
 
         <Link
           href={data?.acf?.section_link?.href || "/"}
-          className={`bg-black text-white w-full text-center px-8 md:px-32 leading-15.25 font-bold block md:w-fit rounded-full backdrop-blur-sm `}
+          className={`block w-full rounded-full bg-black px-8 text-center leading-15.25 font-bold text-white backdrop-blur-sm md:w-fit md:px-32`}
         >
           {data?.acf?.section_link?.text || "تواصل معنا"}
         </Link>
@@ -35,7 +35,7 @@ export default function AboutUsSectionTypeSection({
       <Image
         src={data?.acf?.hero_image || "/unlabeled/about-section-hero-image.png"}
         alt="صورة القسم الجانبية"
-        className={`absolute left-0 top-0 w-1/3 -z-10 max-lg:hidden`}
+        className={`absolute top-0 left-0 -z-10 w-1/3 max-lg:hidden`}
         width={521}
         height={876}
       />
