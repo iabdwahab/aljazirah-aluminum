@@ -9,7 +9,7 @@ export default function AboutUsSectionTypeSection({
 }) {
   return (
     <section
-      className={`bg-white text-black overflow-hidden px-10 lg:px-18.75 pt-18.75 pb-30 relative rounded-[53px] my-4`}
+      className={` bg-reds-300 text-black overflow-hidden px-10 lg:px-18.75 pt-18.75 lg:pb-60 relative  my-4`}
     >
       <div className="lg:max-w-3/5">
         <h3 className="bg-linear-to-b from-[#8A5F00] to-[#F0A500] text-transparent bg-clip-text font-black text-4xl leading-15.25 mb-4">
@@ -35,7 +35,7 @@ export default function AboutUsSectionTypeSection({
       <Image
         src={data?.acf?.hero_image || "/unlabeled/about-section-hero-image.png"}
         alt="صورة القسم الجانبية"
-        className={` absolute left-0 -bottom-3 w-full lg:w-2/5 h-full object-contain max-lg:hidden`}
+        className={`absolute left-0 top-0 w-1/3 -z-10 max-lg:hidden`}
         width={521}
         height={876}
       />
