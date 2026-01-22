@@ -11,8 +11,11 @@ export default function AboutUsSectionTypeCard({
 }) {
   return (
     <section
-      className={`relative my-4 overflow-hidden rounded-4xl bg-black px-8 pt-18.75 pb-20 text-white lg:px-18.75 lg:pb-30 ${className}`}
+      className={`relative z-10 my-4 overflow-hidden rounded-4xl bg-black px-8 pt-18.75 pb-20 text-white lg:px-18.75 lg:pb-30 ${className}`}
     >
+      {/* Blurry corner */}
+      <span className="absolute -right-1/2 -bottom-1/2 -z-10 h-full w-full bg-linear-to-b from-yellow-800 to-amber-500 blur-[661px] lg:w-1/2"></span>
+
       <div className="lg:max-w-3/5">
         <Image
           src={data?.acf?.logo || "/logo.svg"}
