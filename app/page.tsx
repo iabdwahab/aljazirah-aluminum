@@ -7,8 +7,8 @@ export default function Home() {
     <>
       <HomeHeroSection />
       <ProductsSection />
-      <div className="container">
-        <AboutUsSection type="card" />
+      <div className="lg:container">
+        <AboutUsSection type="card" className="rounded-none lg:rounded-4xl" />
       </div>
     </>
   );

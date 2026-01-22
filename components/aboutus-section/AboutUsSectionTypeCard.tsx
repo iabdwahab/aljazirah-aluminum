@@ -11,7 +11,7 @@ export default function AboutUsSectionTypeCard({
 }) {
   return (
     <section
-      className={`relative my-4 overflow-hidden rounded-[53px] bg-black px-10 pt-18.75 pb-30 text-white lg:px-18.75 ${className}`}
+      className={`relative my-4 overflow-hidden rounded-4xl bg-black px-8 pt-18.75 pb-20 text-white lg:px-18.75 lg:pb-30 ${className}`}
     >
       <div className="lg:max-w-3/5">
         <Image
@@ -21,10 +21,17 @@ export default function AboutUsSectionTypeCard({
           width={117}
           height={117}
         />
-        <h3 className="mb-4 bg-linear-to-b from-[#8A5F00] to-[#F0A500] bg-clip-text text-4xl leading-15.25 font-black text-transparent">
-          {data?.acf?.title || "من نحـــــــــــــــــــــــــــــــــــن"}
-        </h3>
-        <p className="mb-8 leading-6.75">
+
+        <div>
+          <h3 className="mb-4 hidden bg-linear-to-b from-[#8A5F00] to-[#F0A500] bg-clip-text text-4xl leading-15.25 font-black text-transparent md:block">
+            {data?.acf?.title || "من نحـــن"}
+          </h3>
+          <h3 className="mb-4 block bg-linear-to-b from-[#8A5F00] to-[#F0A500] bg-clip-text text-4xl leading-15.25 font-black text-transparent md:hidden">
+            {(data?.acf?.title).split("ـ").join("") || "من نحن"}
+          </h3>
+        </div>
+
+        <p className="mb-8 leading-6.75 max-md:text-justify">
           {data?.acf?.description ||
             `
             منذ ما يقارب من نصف قرن من الالتزام بالجودة والارتقاء بالتصاميم، والتنوع في المنتجات والابتكارات، ومواكبة أحدث التطورات التي تتناسب مع المواصفات الخليجية. ولذلك يعد مصنع ألمنيوم الجزيرة من أهم المصانع التي يمكن الوثوق بها لالتزامها بالدرجة العالية من التصنيع والتركيب والتسليم ومن ثم الخدمة. لذا مازال مصنع ألمنيوم الجزيرة من أكبر الرواد في تلك الصناعة لجهوده المستمرة في تطوير الذات وتحسينها مما أدى إلى اكتسابنا الاحترام الفائق في عالم البناء والتشييد.
