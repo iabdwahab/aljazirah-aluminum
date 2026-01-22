@@ -1,13 +1,15 @@
+import AboutUsSection from "@/components/aboutus-section/AboutUsSection";
 import HomeHeroSection from "@/components/HomeHeroSection";
-import HRSection from "@/components/hr-section/HRSection";
-import ProductsContainer from "@/components/products/ProductsContainer";
+import ProductsSection from "@/components/products/ProductsSection";
 
 export default function Home() {
   return (
     <>
       <HomeHeroSection />
-      <HRSection />
-      <ProductsContainer />
+      <ProductsSection />
+      <div className="container">
+        <AboutUsSection type="card" />
+      </div>
     </>
   );
 }
