@@ -5,3 +5,6 @@
 }
 
 /* Products Grid Layouts */
+.swiper-wrapper {
+  transition-timing-function: linear !important;
+}
