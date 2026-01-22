@@ -3,14 +3,14 @@ import Image from "next/image";
 interface ProductCardProps {
   className?: string;
   title: string;
-  features: string[];
-  image: string | null;
+  description: string;
+  image: string | false;
 }
 
 export default function ProductCard({
   className,
   title,
-  features,
+  description,
   image,
 }: ProductCardProps) {
   return (
@@ -20,7 +20,7 @@ export default function ProductCard({
       <div>
         <Image
           src={image || "/default-image.png"}
-          alt={title}
+          alt="صورة المنتج"
           width={500}
           height={300}
           className="max-h-80 w-75 max-w-full"
@@ -29,11 +29,15 @@ export default function ProductCard({
 
       <div>
         <h3 className="mb-3.5 text-2xl font-bold text-[#212121]">{title}</h3>
-        <ol className="list-inside list-decimal space-y-3.5 text-sm text-[#000000]">
+        <div></div>
+        <div dangerouslySetInnerHTML={{ __html: description }}></div>
+
+        {/* Commenting this because wordpress will handle the ol element and it will appended to the above div ^ */}
+        {/* <ol className="list-inside list-decimal space-y-3.5 text-sm text-[#000000]">
           {features.map((feature, index) => (
             <li key={index}>{feature}</li>
           ))}
-        </ol>
+        </ol> */}
       </div>
     </article>
   );
