@@ -4,12 +4,14 @@ import Link from "next/link";
 
 export default function AboutUsSectionTypeSection({
   data,
+  className = "",
 }: {
   data: AboutUsSectionInterface;
+  className?: string;
 }) {
   return (
     <section
-      className={`bg-reds-300 relative my-4 overflow-hidden px-10 pt-18.75 text-black lg:px-18.75 lg:pb-60`}
+      className={`bg-reds-300 relative my-4 overflow-hidden px-10 pt-18.75 text-black lg:px-18.75 lg:pb-60 ${className}`}
     >
       <div className="lg:max-w-3/5">
         <h3 className="mb-4 bg-linear-to-b from-[#8A5F00] to-[#F0A500] bg-clip-text text-4xl leading-15.25 font-black text-transparent">

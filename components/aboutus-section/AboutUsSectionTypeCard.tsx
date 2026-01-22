@@ -4,12 +4,14 @@ import Link from "next/link";
 
 export default function AboutUsSectionTypeCard({
   data,
+  className = "",
 }: {
   data: AboutUsSectionInterface;
+  className?: string;
 }) {
   return (
     <section
-      className={`relative my-4 overflow-hidden rounded-[53px] bg-black px-10 pt-18.75 pb-30 text-white lg:px-18.75`}
+      className={`relative my-4 overflow-hidden rounded-[53px] bg-black px-10 pt-18.75 pb-30 text-white lg:px-18.75 ${className}`}
     >
       <div className="lg:max-w-3/5">
         <Image
