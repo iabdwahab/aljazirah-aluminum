@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <HomeHeroSection />
-      <ProductsSwiperContainer />
+      <ProductsSwiperContainer className="hidden md:block" />
       <ProductsSection />
       <div className="lg:container">
         <AboutUsSection type="card" className="rounded-none lg:rounded-4xl" />

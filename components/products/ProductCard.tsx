@@ -19,7 +19,7 @@ export default function ProductCard({
     >
       <div>
         <Image
-          src={image || "/default-image.png"}
+          src={image || "/products/product-1.svg"}
           alt="صورة المنتج"
           width={500}
           height={300}
