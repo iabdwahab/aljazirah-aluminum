@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function OurWorkCard() {
   return (
-    <article className="relative flex h-[472px] flex-col justify-between space-y-10 overflow-hidden rounded-4xl bg-black text-white">
-      <span className="absolute top-0 left-1/4 h-full w-full rounded-full bg-[#ffffff38] blur-[200px]"></span>
+    <article className="relative flex min-h-118 flex-col justify-between space-y-10 overflow-hidden rounded-4xl bg-black text-white">
+      <span className="absolute top-0 left-1/4 h-full w-full rounded-full bg-[#ffffff38] blur-[150px]"></span>
 
       <div className="grid px-4 pt-6 md:grid-cols-2">
         <div className="relative hidden md:block">
@@ -13,12 +13,14 @@ export default function OurWorkCard() {
             alt="our work 1"
             width={550}
             height={1120}
-            className="absolute right-15 w-[90%] rotate-15"
+            className="absolute right-10 w-[90%] rotate-15"
           />
         </div>
-        <div className="relative">
-          <h3>القبب السماوية (السكاي لايت)</h3>
-          <p>
+        <div className="relative pt-6">
+          <h3 className="mb-3 text-2xl font-bold text-[#F1F1F1]">
+            القبب السماوية (السكاي لايت)
+          </h3>
+          <p className="text-[15px]">
             ⁠تصميم هندسي يسمح بدخول الإضاءة الطبيعية بأفضل توزيع داخل المساحات
             الداخلية. •⁠ ⁠هيكل ألمنيوم عالي الجودة مقاوم للعوامل الجوية والظروف
             المناخية القاسية. •⁠ ⁠زجاج مختار بعناية يوفر عزلًا حراريًا وصوتيًا
@@ -28,10 +30,10 @@ export default function OurWorkCard() {
         </div>
       </div>
 
-      <div className="relative mr-auto w-fit rounded-tr-4xl bg-black p-4">
+      <div className="relative mr-auto w-fit rounded-tr-4xl bg-black p-4 pl-0">
         <Link
           href="#"
-          className="relative flex h-[80px] w-fit items-center justify-center rounded-[20px] bg-[#FFFFFF1A] px-6"
+          className="relative flex h-20 w-fit items-center justify-center rounded-[20px] bg-[#FFFFFF1A] px-6 transition duration-100 hover:opacity-85"
         >
           <Image
             src="/unlabeled/arrow.svg"
