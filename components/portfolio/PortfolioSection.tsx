@@ -1,4 +1,6 @@
 import Image from "next/image";
+import SectionTitle from "../global/SectionTitle";
+import PortfolioHeading from "./PortfolioHeading";
 
 export default async function PortfolioSection() {
   const portfolioResponse = await fetch(
@@ -20,6 +22,9 @@ export default async function PortfolioSection() {
 
   return (
     <section className="bg-black py-16">
+      <h2 className="hidden">معرض أعمالنا</h2>
+      <PortfolioHeading />
+
       <div className="container space-y-4">
         <div className="grid grid-rows-[300px] gap-4 md:grid-cols-2 lg:grid-rows-[repeat(4,300px)]">
           {portfolioList.slice(0, 5).map((portfolioItem, index) => (
