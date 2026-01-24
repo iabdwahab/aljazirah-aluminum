@@ -8,7 +8,7 @@ export default async function QualificationsSectionHeading() {
   const sectionData = await sectionDataResponse.json();
 
   return (
-    <div className="grid grid-cols-3 gap-20">
+    <div className="grid gap-6 lg:grid-cols-3 lg:gap-20">
       <SectionTitle title={sectionData?.acf?.title} />
       <SectionDescription
         description={sectionData?.acf?.description}

@@ -8,15 +8,17 @@ export default async function OurWorkContainer() {
   const ourWorkList: OurWorkInterface[] = await ourWorkResponse.json();
 
   return (
-    <div className="container grid gap-10 bg-black lg:grid-cols-2">
-      {ourWorkList.map((workItem, index) => (
-        <OurWorkCard
-          key={index}
-          image={workItem.acf.image}
-          title={workItem.acf.title}
-          description={workItem.acf.description}
-        />
-      ))}
+    <div className="bg-black py-20">
+      <div className="container grid gap-10 lg:grid-cols-2">
+        {ourWorkList.map((workItem, index) => (
+          <OurWorkCard
+            key={index}
+            image={workItem.acf.image}
+            title={workItem.acf.title}
+            description={workItem.acf.description}
+          />
+        ))}
+      </div>
     </div>
   );
 }

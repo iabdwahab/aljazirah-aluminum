@@ -8,9 +8,5 @@ export default async function QualificationsSwiperContainer() {
   const qualificationsList: QualificationInterface[] =
     await qualificationsResponse.json();
 
-  return (
-    <div className="bg-black py-10">
-      <QualificationsSwiper qualificationsList={qualificationsList} />
-    </div>
-  );
+  return <QualificationsSwiper qualificationsList={qualificationsList} />;
 }
