@@ -15,14 +15,14 @@ export default function QualificationsSwiper({
       <Swiper
         slidesPerView={1.15}
         spaceBetween={20}
-        loop
-        speed={5000}
-        allowTouchMove={false}
-        autoplay={{
-          delay: 0,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay]}
+        // loop
+        // speed={5000}
+        // allowTouchMove={false}
+        // autoplay={{
+        //   delay: 0,
+        //   disableOnInteraction: false,
+        // }}
+        // modules={[Autoplay]}
         style={{
           transitionTimingFunction: "linear",
         }}
