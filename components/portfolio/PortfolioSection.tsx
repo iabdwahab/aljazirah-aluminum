@@ -13,7 +13,7 @@ export default async function PortfolioSection() {
     "lg:row-span-2 lg:col-start-1",
     "lg:row-span-1 lg:row-start-1 lg:col-start-2",
     "lg:row-span-2 lg:row-start-2 lg:col-start-2",
-    "lg:row-span-1 lg:row-start-4 lg:col-start-2",
+    "lg:row-span-1 md:col-span-2 lg:row-start-4 lg:col-start-2 ",
   ];
 
   const lastGroupClassNames = ["lg:col-span-1", "lg:col-span-2"];
