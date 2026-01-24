@@ -15,8 +15,10 @@ export default function ProductCard({
 }: ProductCardProps) {
   return (
     <article
-      className={`${className} relative rounded-[27px] bg-[#F5F3F1] p-7`}
+      className={`${className} relative z-10 overflow-hidden rounded-[27px] bg-[#F5F3F1] p-7`}
     >
+      <span className="absolute top-0 left-0 -z-10 h-full w-full translate-x-1/2 translate-y-1/2 rounded-full bg-[#f0a40036] blur-[212.2px]"></span>
+
       <div>
         <Image
           src={image || "/products/product-1.svg"}
