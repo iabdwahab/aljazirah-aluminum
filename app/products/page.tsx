@@ -3,7 +3,7 @@ import WorkHeroSection from "@/components/HeroSections/WorkHeroSection";
 import OurWorkContainer from "@/components/our-work/OurWorkContainer";
 import ProductsSwiperContainer from "@/components/products-swiper/ProductsSwiperContainer";
 
-export default function WorkPage() {
+export default function ProjectsPage() {
   return (
     <>
       <WorkHeroSection />

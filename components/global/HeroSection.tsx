@@ -31,7 +31,7 @@ export default function HeroSection({
           width={171}
           height={171}
         />
-        <h1 className="text-[24px] font-black md:text-[30px] lg:text-[40px]">
+        <h1 className="bg-[conic-gradient(from_180deg_at_50%_50%,#ffffff,#999999,#ffffff)] bg-clip-text text-[24px] font-black text-transparent md:text-[30px] lg:text-[40px]">
           {title}
         </h1>
         <p className="mb-4 text-sm font-normal md:text-base">{description}</p>

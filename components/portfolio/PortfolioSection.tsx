@@ -1,6 +1,7 @@
 import Image from "next/image";
 import SectionTitle from "../global/SectionTitle";
 import PortfolioHeading from "./PortfolioHeading";
+import ContactLink from "../global/ContactLink";
 
 export default async function PortfolioSection() {
   const portfolioResponse = await fetch(
@@ -62,6 +63,8 @@ export default async function PortfolioSection() {
           ))}
         </div>
       </div>
+
+      {/* <ContactLink /> */}
     </section>
   );
 }
