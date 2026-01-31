@@ -14,7 +14,15 @@ export default function HeroSection({
   };
 }) {
   return (
-    <main className="flex min-h-screen items-center bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.9)),url('/home/hero-image.png')] bg-cover bg-center bg-no-repeat text-white">
+    <main className="relative flex min-h-screen items-center bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.9))] bg-cover bg-center bg-no-repeat text-white">
+      <span>
+        <Image
+          src="/home/hero-image.png"
+          alt="خلفية الهيرو"
+          fill
+          className="absolute -z-10 object-cover"
+        />
+      </span>
       <div className="container flex min-h-screen flex-col items-center justify-center gap-2.5 text-center md:max-w-[95%] lg:max-w-[70%]">
         <Image
           src="/logo-white.svg"
@@ -23,7 +31,7 @@ export default function HeroSection({
           width={171}
           height={171}
         />
-        <h1 className="bg-[conic-gradient(from_90deg_at_50%_50%,#FFFFFF_0deg,#999999_360deg)] bg-clip-text text-[20px] font-black text-transparent lg:text-[40px]">
+        <h1 className="text-[24px] font-black md:text-[30px] lg:text-[40px]">
           {title}
         </h1>
         <p className="mb-4 text-sm font-normal md:text-base">{description}</p>
