@@ -1,5 +1,6 @@
 export interface FooterInterface {
   acf: {
+    footer_logo: string | null;
     footer_column_1: {
       column_title: string;
       column_links: {

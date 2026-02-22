@@ -1,0 +1,63 @@
+import { FooterInterface } from "@/types/footer";
+import Image from "next/image";
+import Link from "next/link";
+
+export default async function Footer() {
+  const dataResponse = await fetch(`
+    ${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/sections-info/195`);
+
+  const data: FooterInterface = await dataResponse.json();
+  console.log("Footer: ", data);
+
+  return (
+    <footer className="container py-10 text-[#292929]">
+      <div>
+        <div className="mb-8 flex items-center justify-center">
+          <Image
+            src={data?.acf?.footer_logo || "/logo-full-with-text.svg"}
+            alt={"لوجو الشركة"}
+            width={311}
+            height={102}
+          />
+        </div>
+
+        <div className="flex flex-wrap items-center gap-10">
+          <div>
+            <h3 className="mb-6 text-2xl font-bold">
+              {data?.acf?.footer_column_1?.column_title}
+            </h3>
+
+            <ul className="space-y-3">
+              {Object.values(
+                data?.acf?.footer_column_1?.column_links || {},
+              ).map((link, index) => (
+                <li key={index}>
+                  <Link className="font-bold" href={link.link_url}>
+                    {link.link_text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="mb-6 text-2xl font-bold">
+              {data?.acf?.footer_column_2?.column_title}
+            </h3>
+
+            <ul className="space-y-3">
+              {Object.values(
+                data?.acf?.footer_column_2?.column_links || {},
+              ).map((link, index) => (
+                <li key={index}>
+                  <Link className="font-bold" href={link.link_url}>
+                    {link.link_text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

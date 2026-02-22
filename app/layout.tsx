@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/global/Header";
+import Footer from "@/components/footer/Footer";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -22,9 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
-      <Header />
       <body className={`${cairo.className} relative antialiased`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
