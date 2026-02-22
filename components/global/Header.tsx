@@ -1,14 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-5 z-50 grid w-full grid-cols-[100px_1fr] items-center rounded-2xl border border-[#ffffff] bg-[#ffffff5b] px-4 py-4 backdrop-blur-sm md:right-5 md:w-[calc(100%-40px)] md:grid-cols-[100px_1fr_100px] md:px-6">
+    <header
+      className={`fixed top-5 z-50 grid w-full grid-cols-[100px_1fr] items-center rounded-2xl border border-[#ffffff] px-4 py-4 transition-colors duration-300 md:right-5 md:w-[calc(100%-40px)] md:grid-cols-[100px_1fr_100px] md:px-6 ${
+        scrolled
+          ? "bg-[#ffffffd9] backdrop-blur-md"
+          : "bg-[#ffffff5b] backdrop-blur-sm"
+      }`}
+    >
       <div>
         <Image
           src="/logo-white.svg"
