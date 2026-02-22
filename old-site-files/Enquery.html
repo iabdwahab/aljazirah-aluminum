@@ -1,0 +1,244 @@
+<?php
+ob_start();
+$frmpost=0;
+$err=0;
+if(isset($_POST['submit']))
+{
+	$frmpost=1;
+	$name="info@graceayurvedic.in";
+	$contact_name=$_POST['contact_name'];
+	if($contact_name=='')
+	{
+		$err=1;
+		$err5="Enter Name";
+	}
+	$contact_email=$_POST['contact_email'];
+    if($contact_email=='')
+	{
+		$err=1;
+	$err1="Enter Emailid";	
+	}
+	$contact_address=$_POST['contact_address'];
+	if($contact_address=='')
+	{
+		$err=1;
+		$err2="Enter Address";
+	}
+	$contact_mobile=$_POST['contact_mobile'];
+	if($contact_mobile=='')
+	{
+		$err=1;
+		$err3="Enter Number ";
+	}
+	else if(!preg_match('/^[0-9]+$/i',$contact_mobile))
+    {
+		$err=1;
+	
+		$err3="Invalid Number";
+    }
+	$contact_note=$_POST['contact_note'];
+	if($contact_note=='')
+	{
+		$err=1;
+		$err4="Missing Data";
+	}
+	if($err==0)
+	{
+	$subject="Enquiry";   //place your subject line
+	$mail_to= "alumjazirah@yahoo.com";  //mail to whom we have to send  
+	$headers .= "MIME-Version: 1.0 \n"; 
+    $headers .= "Content-type: text/html; charset=iso-8859-1 \n"; 
+    $headers .= "From:$name\r\n"; //the from mail of the customer    
+	$mailbody= '<table width="50%" border="0" align="center" cellpadding="5" cellspacing="4" style="border=1px solid color:#666666">';
+	$mailbody.='<tr><td colspan="2" align="left"><strong><font size="+1">Contact Details</font></strong></td></tr>';	
+	$mailbody.='<tr><td >Name :</td><td>'.$contact_name.'</td></tr>';
+	$mailbody.='<tr><td >Address.:</td><td>'.$contact_address.'</td></tr>';
+	$mailbody.='<tr><td >Email ID :</td><td>'.$contact_email.'</td></tr>';
+	$mailbody.='<tr><td >Subject :</td><td>'.$subject.'</td></tr>';
+	$mailbody.='<tr><td >Message :</td><td>'.$contact_note.'</td></tr>';
+	$mailbody.='<tr><td >Mobile No.:</td><td>'.$contact_mobile.'</td></tr>';		 
+	if (@mail ($mail_to, $subject, $mailbody, $headers)) 
+	{ 
+       		header("Location:Enquery.php?stat=yes");
+	}
+	else
+	{
+			header("Location:Enquery.php?MSGCODE=0002");
+	}
+}
+}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description"  content="A list of Al-Jazirah's past and present clients demonstrates the universal approval of its products. " />
+<meta name="keywords" content="alumjaz, alumjaz, alumjaz, alumjaz, alumjaz , alumjaz, alumjazArcitrave, Bottum Hung window, Curtain wall, Hinged door, Hinged window, Rolling Shutter , Sky light, Sliding window, Structure Glaze, Swing Door, alumjaz, Al-Jazirah, Aljazirah, Aluminium plant, Saudi aluminium plant, Al-Jazirah aluminium plant, First Industrial City, AL-KHOBAR SHOW ROOM OFFICE, DAMMAM SHOW ROOM OFFICE,  Dammam first aluminium plant, Dammam aluminium plant,  www.aljazeera.com/, aljazeera, aljazeerah, Aljazeera, Al Jazeera, News, Middle east, Africa, Asia, Asia Pacific, Europe, Sports, Business, Opinion, Spotlight, Features, Programmes" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Al-Jazirah Aluminium Plant</title>
+<meta name="keywords" content="alumjaz, alumjaz, alumjaz, alumjaz, alumjaz , alumjaz, alumjazArcitrave, Bottum Hung window, Curtain wall, Hinged door, Hinged window, Rolling Shutter , Sky light, Sliding window, Structure Glaze, Swing Door, alumjaz, Al-Jazirah, Aljazirah, Aluminium plant, Saudi aluminium plant, Al-Jazirah aluminium plant, First Industrial City, Dammam , AL-KHOBAR SHOW ROOM OFFICE, DAMMAM SHOW ROOM OFFICE,  Dammam first aluminium plant, Dammam aluminium plant,  www.aljazeera.com/, aljazeera, Aljazeera, Al Jazeera, News, Middle east, Africa, Asia, Asia Pacific, Europe, Sports, Business, Opinion, Spotlight, Features, Programmes, aljazeerah,">
+<link href="style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
+
+body {
+	background-color: #000;
+}
+</style>
+</head>
+
+<body> 
+
+   <div align="center">
+<div id="wrappercontactpage">
+      <div id="top">
+       <div style="width:242px; height:151px; float:left;"> <a href="index.html"><img src="image/topname-nd-logo.png" border="0"/></a> </div>
+       <div align="right" style="width:133px; direction:top; height:176px; float:right; margin-right:27px;"> <a href="index.html"><img src="image/right-emblem.png" border="0"/></a></div>
+       
+       <div  style="width:100%; float:left height:184px; "><a href="index.html"><img src="image/top name.gif" height="130" border="0" style="margin-top:30px"/></a> 
+       
+       <div style="float:right;  width:24px; height:24px; margin-right:-115px; margin-top:155px;"><a href="index arabic.html"><img src="image/ksa.png" border="0" title="Arabic Version"/></a> </div>
+       
+       
+       <div style="float:right; width:24px; height:24px; margin-right:-80px; margin-top:155px; "><a href="index.html"><img src="image/uk.png" border="0" title="English Version"/></a> </div>
+       
+       </div>
+       
+       
+      
+      
+      
+       <!--<a href="index.html"><img src="image/topname nd logo.jpg" border="0"/></a>--></div>
+  <div class="flsh_news"><div id="news_contant">
+    <marquee behavior="scroll"  truespeed="truespeed" onmouseover="this.stop()" onmouseout="this.start()"  scrollamount="2"  direction="left" style="color:#fde3a6; font-family:Arial, Helvetica, sans-serif; text-align:justify; ">
+&quot;ESTABLISHED IN 1976... AL JAZIRAH SWISS SYSTEM... ISO CERTIFIED... SASO &amp; ASTM COMPLIED... A NAME WITH DEEP ROOTS...&quot;
+    </marquee>
+  </div>
+        
+       
+  </div>
+ <div style="width:100%; height:301px; float:left; margin-top:20px;">    
+ <div class="yellow-side1"> <a href="index.html"><img src="image/side-yellow.gif" border="0" style="margin-top:-4px";/></a>
+    </div>
+    <div style="width:29px; height:2px; float:left; background-color:#790102; margin-top:288px;"></div>
+
+
+<div align="center" class="Flash" >
+       
+          <div align="center" style="height:293px; width:700px; float:left;  margin-top:3px;">
+    <EMBED SRC="swf/Banner_vini.swf" 
+
+WIDTH="693"
+
+style="margin-top:3px; float:left;  margin-left:5px; "
+
+HEIGHT="283"
+
+align="middle"
+
+
+PLAY="true" 
+
+LOOP="true"
+
+QUALITY="high" 
+
+scale="noborder"
+
+PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
+       
+          </EMBED>
+        </div>
+          </div>
+</div>
+    
+<div class="contant_contact"> 
+<div style="width:100%; height:730px; float:left;">
+<div style="width:199px; height:703px;; float:left; margin-top:23px;"> <img src="image/enquerylft.jpg" height="631"/> </div>
+ 
+   <div style=" width:726px; height:717px; margin-top:10px; float:left; background-image:url(image/enquery%20bg.jpg); background-repeat:no-repeat;">
+ 
+      <div style="width:670px; height:670px; float:left; margin-left:30px; margin-top:18px; text-align:justify; color:#790102; line-height:23px; font-family: Tahoma, Geneva, sans-serif;">
+        <p align="center"><strong><u>Enquery</u></strong></p>
+        <p align="center">&nbsp;</p>
+<?php
+if($err==0)
+{
+$x=$_GET['MSGCODE'];
+$y=$_GET['stat'];
+if($x==0002)
+{
+echo'<font color="#FF0000">'."Mail Sending Failed".'</font>';
+}
+elseif($y==yes)
+{
+echo'<font color="#FF0000">'."Your Message has been sent".'</font>';
+}
+}
+?>
+<form name="contactfrm" method="post" id="sendemail" onclick="return valcontactus();"> 
+                   <table align="center" style="margin-top: -22px; background-color:;" width="700" border="0" cellpadding="5" cellspacing="0">
+                	<tbody>
+                    <tr height="40">
+                    	<td width="80" class="enq_frm">Name<font color="#FF0000" face="Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", Helvetica, Arial, sans-serif;> *</font></td>
+                      <td width="358"><input name="contact_name" type="text" class="txtbox" value="<?php echo $contact_name;?>" size="50">&nbsp;<font color="#FF0000"><?php echo $err5; ?></font></td>
+                     <td width="102" rowspan="7" align="left" valign="top"><font face="Times New Roman, Times, serif"/><font size="4"><h4></h4>
+                        
+                     </td>
+                    </tr>
+                    <tr height="40">
+                    	<td class="enq_frm">Address<font color="#FF0000"> *</font></td>
+                      <td><textarea name="contact_address" cols="60"   style="width:330px; color:006699;border: solid 1px #333333; height:80px" ><?php echo $contact_note; ?></textarea>&nbsp;<font color="#FF0000"><?php echo $err2; ?></font>
+			    </td>
+                        <td width="109">&nbsp;</td>
+                      </tr>
+                    <tr height="40">
+                    	<td class="enq_frm">Mobile<font color="#FF0000"> *</font></td>
+                      <td><input name="contact_mobile" type="text"  class="txtbox" id="mobile" value="<?php echo $contact_mobile; ?>" size="50"/>&nbsp;<font color="#FF0000"><?php echo $err3; ?></font></td>
+                        <td>&nbsp;</td>
+                      </tr>
+                    <tr height="40">
+                    	<td>E-mail ID<font color="#FF0000">*</font></td>
+                      <td><input name="contact_email" type="text"  class="txtbox" id="email" onblur="CheckEmail(this.value);" onkeyup="CheckEmail(this.value);" value="<?php echo $contact_email; ?>" size="50">&nbsp;<font color="#FF0000"><?php echo $err1; ?></font>
+                       <font color="#FF0000"><div id="divEmail" ></div><div id="errmsg2"></div></font>
+						</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                    <tr height="13">
+                    	<td></td>
+                      <td></td>
+                        <td></td>
+                      </tr>
+                    <tr valign="top" height="40">
+                    	<td class="enq_frm">Enquery<font color="#FF0000"> *</font></td>
+                      <td><textarea name="contact_note" cols="60"  style="width:330px; color:006699;border: solid 1px #333333; height:80px" ><?php echo $contact_note; ?></textarea>&nbsp;<font color="#FF0000"><?php echo $err4; ?></font></td>
+                        
+                      </tr>
+                    <tr height="60">
+                    	<td></td>
+                      <td>
+                            &nbsp;<input type="submit" name="submit" value="Send Message" width="60" border="0" height="18"></td>
+                        &nbsp;&nbsp;&nbsp;</td>
+                        <td width="1">&nbsp;</td>
+                      </tr>
+                </tbody></table>
+					</form>
+      
+
+
+</div>
+   </div>
+ 
+  
+ 
+</div>
+</div>    
+
+    
+    
+  </div>
+</div>
+</body>
+
+
+</html>
