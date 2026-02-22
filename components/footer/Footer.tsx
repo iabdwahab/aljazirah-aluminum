@@ -24,7 +24,7 @@ export default async function Footer() {
 
         <div className="flex flex-wrap items-center gap-10">
           <div>
-            <h3 className="mb-6 text-2xl font-bold">
+            <h3 className="mb-6 text-xl font-bold md:text-2xl">
               {data?.acf?.footer_column_1?.column_title}
             </h3>
 
@@ -41,7 +41,7 @@ export default async function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="mb-6 text-2xl font-bold">
+            <h3 className="mb-6 text-xl font-bold md:text-2xl">
               {data?.acf?.footer_column_2?.column_title}
             </h3>
 
