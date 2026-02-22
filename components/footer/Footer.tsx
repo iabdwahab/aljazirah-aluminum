@@ -18,6 +18,7 @@ export default async function Footer() {
             alt={"لوجو الشركة"}
             width={311}
             height={102}
+            className="h-20 w-40 object-contain md:h-40 md:w-80"
           />
         </div>
 
