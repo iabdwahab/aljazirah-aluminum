@@ -12,7 +12,7 @@ export default async function Footer() {
   return (
     <footer className="relative py-10 text-[#292929]">
       <Image
-        src={"/footer-image.png"}
+        src={"/footer-background.png"}
         alt={"خلفية الفوتر"}
         width={1920}
         height={400}
