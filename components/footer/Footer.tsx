@@ -10,8 +10,15 @@ export default async function Footer() {
   console.log("Footer: ", data);
 
   return (
-    <footer className="container py-10 text-[#292929]">
-      <div>
+    <footer className="relative py-10 text-[#292929]">
+      <Image
+        src={"/footer-image.png"}
+        alt={"خلفية الفوتر"}
+        width={1920}
+        height={400}
+        className="w-100vw absolute top-0 left-0 -z-10 h-full object-cover object-top opacity-80"
+      />
+      <div className="container">
         <div className="mb-8 flex items-center justify-center">
           <Image
             src={data?.acf?.footer_logo || "/logo-full-with-text.svg"}
