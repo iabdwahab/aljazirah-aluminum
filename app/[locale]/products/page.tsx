@@ -16,8 +16,8 @@ export default async function ProjectsPage({
     <>
       <WorkHeroSection />
       <AboutUsSection type="section" />
-      <ProductsSwiperContainer />
-      <OurWorkContainer />
+      {/* <ProductsSwiperContainer /> */}
+      {/* <OurWorkContainer /> */}
     </>
   );
 }

@@ -21,10 +21,10 @@ export default async function AboutUsSectionTypeSection({
 
   return (
     <section
-      className={`relative my-4 overflow-hidden px-10 pt-18.75 text-text-primary lg:px-18.75 lg:pb-60 ${className}`}
+      className={`text-text-primary relative my-4 overflow-hidden px-10 pt-18.75 lg:px-18.75 lg:pb-60 ${className}`}
     >
       <div className="lg:max-w-3/5">
-        <h3 className="mb-4 bg-linear-to-b from-brand-gold-start to-brand-gold-end bg-clip-text text-4xl leading-15.25 font-black text-transparent">
+        <h3 className="from-brand-gold-start to-brand-gold-end mb-4 bg-linear-to-b bg-clip-text text-4xl leading-15.25 font-black text-transparent">
           {title || t("defaultTitle")}
         </h3>
         <p className="mb-8 leading-6.75">
@@ -33,7 +33,7 @@ export default async function AboutUsSectionTypeSection({
 
         <Link
           href={(data?.acf?.section_link?.href as "/") || "/"}
-          className={`block w-full rounded-full bg-bg-dark px-8 text-center leading-15.25 font-bold text-text-on-dark backdrop-blur-sm md:w-fit md:px-32`}
+          className={`bg-bg-dark text-text-on-dark block w-full rounded-full px-8 text-center leading-15.25 font-bold backdrop-blur-sm md:w-fit md:px-32`}
         >
           {ctaText || t("defaultCta")}
         </Link>
@@ -43,7 +43,7 @@ export default async function AboutUsSectionTypeSection({
       <Image
         src={data?.acf?.hero_image || "/unlabeled/about-section-hero-image.png"}
         alt={t("sideImageAlt")}
-        className={`absolute top-0 left-0 -z-10 w-1/3 max-lg:hidden`}
+        className={`absolute top-0 -z-10 w-1/3 max-lg:hidden ltr:right-0 rtl:left-0`}
         width={521}
         height={876}
       />

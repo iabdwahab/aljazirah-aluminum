@@ -21,10 +21,10 @@ export default async function AboutUsSectionTypeCard({
 
   return (
     <section
-      className={`relative z-10 my-4 overflow-hidden rounded-4xl bg-bg-dark px-8 pt-18.75 pb-20 text-text-on-dark lg:px-18.75 lg:pb-30 ${className}`}
+      className={`bg-bg-dark text-text-on-dark relative z-10 my-4 overflow-hidden rounded-4xl px-8 pt-18.75 pb-20 lg:px-18.75 lg:pb-30 ${className}`}
     >
       {/* Blurry corner */}
-      <span className="absolute -right-1/2 -bottom-1/2 -z-10 h-full w-full bg-linear-to-b from-brand-gold-start to-brand-gold-end blur-[661px] lg:w-1/2"></span>
+      <span className="from-brand-gold-start to-brand-gold-end absolute -bottom-1/2 -z-10 h-full w-full bg-linear-to-b blur-[661px] lg:w-1/2 ltr:-left-1/2 rtl:-right-1/2"></span>
 
       <div className="lg:max-w-3/5">
         <Image
@@ -36,10 +36,10 @@ export default async function AboutUsSectionTypeCard({
         />
 
         <div>
-          <h3 className="mb-4 hidden bg-linear-to-b from-brand-gold-start to-brand-gold-end bg-clip-text text-4xl leading-15.25 font-black text-transparent md:block">
+          <h3 className="from-brand-gold-start to-brand-gold-end mb-4 hidden bg-linear-to-b bg-clip-text text-4xl leading-15.25 font-black text-transparent md:block">
             {title || t("defaultTitle")}
           </h3>
-          <h3 className="mb-4 block bg-linear-to-b from-brand-gold-start to-brand-gold-end bg-clip-text text-4xl leading-15.25 font-black text-transparent md:hidden">
+          <h3 className="from-brand-gold-start to-brand-gold-end mb-4 block bg-linear-to-b bg-clip-text text-4xl leading-15.25 font-black text-transparent md:hidden">
             {(title || t("defaultTitleMobile")).split("ـ").join("")}
           </h3>
         </div>
@@ -50,7 +50,7 @@ export default async function AboutUsSectionTypeCard({
 
         <Link
           href={(data?.acf?.section_link?.href as "/") || "/"}
-          className={`block w-full rounded-full bg-bg-overlay px-8 text-center leading-15.25 font-bold backdrop-blur-sm md:w-fit md:px-32`}
+          className={`bg-bg-overlay block w-full rounded-full px-8 text-center leading-15.25 font-bold backdrop-blur-sm md:w-fit md:px-32`}
         >
           {ctaText || t("defaultCta")}
         </Link>
@@ -60,7 +60,7 @@ export default async function AboutUsSectionTypeCard({
       <Image
         src={data?.acf?.hero_image || "/unlabeled/about-section-hero-image.png"}
         alt={t("sideImageAlt")}
-        className={`absolute -bottom-3 left-0 h-full w-full object-contain max-lg:hidden lg:w-2/5`}
+        className={`absolute -bottom-3 h-full w-full object-contain max-lg:hidden lg:w-2/5 ltr:right-0 rtl:left-0`}
         width={521}
         height={876}
       />
