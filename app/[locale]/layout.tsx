@@ -69,9 +69,11 @@ export default async function LocaleLayout({
             `,
           }}
         />
+
+        <link rel="icon" type="image/x-icon" href="/logo.svg" />
       </head>
       <body
-        className={`${cairo.className} relative bg-bg-primary text-text-primary antialiased`}
+        className={`${cairo.className} bg-bg-primary text-text-primary relative antialiased`}
       >
         <ThemeProvider>
           <NextIntlClientProvider>
