@@ -9,16 +9,16 @@
 
 :root {
   /* --- Brand Colors (constant across themes) --- */
-  --color-brand-gold-start: #8A5F00;
-  --color-brand-gold-end: #F0A500;
-  --color-brand-gold: #D19101;
+  --color-brand-gold-start: #8a5f00;
+  --color-brand-gold-end: #f0a500;
+  --color-brand-gold: #d19101;
 
   /* --- Background Colors --- */
   --color-bg-primary: #ffffff;
-  --color-bg-secondary: #F5F3F1;
+  --color-bg-secondary: #f5f3f1;
   --color-bg-tertiary: #f9f9f9;
   --color-bg-dark: #000000;
-  --color-bg-card: #F5F3F1;
+  --color-bg-card: #f5f3f1;
   --color-bg-card-hover: #f0eeec;
   --color-bg-header: rgba(255, 255, 255, 0.36);
   --color-bg-header-scrolled: rgba(255, 255, 255, 0.85);
@@ -43,8 +43,8 @@
   --color-blur-white: #ffffff38;
 
   /* --- Component Specific --- */
-  --color-product-card-bg: #F5F3F1;
-  --color-product-card-border: #D3D3D3;
+  --color-product-card-bg: #f5f3f1;
+  --color-product-card-border: #d3d3d3;
   --color-swiper-card-bg: rgba(245, 243, 241, 0.31);
   --color-hero-gradient-start: rgba(0, 0, 0, 0);
   --color-hero-gradient-end: rgba(0, 0, 0, 0.9);
@@ -52,50 +52,52 @@
   --color-qualification-gradient-end: #292929;
 
   /* --- Category icon filter (gold tint for light mode) --- */
-  --filter-category-icon: invert(36%) sepia(61%) saturate(3620%) hue-rotate(28deg) brightness(88%) contrast(101%);
+  --filter-category-icon: invert(36%) sepia(61%) saturate(3620%)
+    hue-rotate(28deg) brightness(88%) contrast(101%);
 }
 
 .dark {
   /* --- Background Colors --- */
-  --color-bg-primary: #0a0a0a;
-  --color-bg-secondary: #141414;
-  --color-bg-tertiary: #1a1a1a;
-  --color-bg-dark: #000000;
-  --color-bg-card: #1a1a1a;
-  --color-bg-card-hover: #252525;
-  --color-bg-header: rgba(10, 10, 10, 0.36);
-  --color-bg-header-scrolled: rgba(10, 10, 10, 0.85);
-  --color-bg-overlay: rgba(255, 255, 255, 0.1);
+  --color-bg-primary: #12100e;
+  --color-bg-secondary: #1c1917;
+  --color-bg-tertiary: #292524;
+  --color-bg-dark: #0a0908;
+  --color-bg-card: #1c1917;
+  --color-bg-card-hover: #292524;
+  --color-bg-header: rgba(18, 16, 14, 0.4);
+  --color-bg-header-scrolled: rgba(18, 16, 14, 0.85);
+  --color-bg-overlay: rgba(255, 255, 255, 0.05);
   --color-bg-footer: transparent;
 
   /* --- Text Colors --- */
-  --color-text-primary: #e5e5e5;
-  --color-text-secondary: #a0a0a0;
-  --color-text-heading: #f1f1f1;
+  --color-text-primary: #f5f5f4;
+  --color-text-secondary: #a8a29e;
+  --color-text-heading: #ffffff;
   --color-text-on-dark: #ffffff;
   --color-text-on-light: #e5e5e5;
-  --color-text-muted: #8a8a8a;
+  --color-text-muted: #78716c;
 
   /* --- Border Colors --- */
-  --color-border-primary: rgba(60, 60, 60, 1);
-  --color-border-light: #333333;
-  --color-border-header: rgba(60, 60, 60, 0.5);
+  --color-border-primary: rgba(68, 64, 60, 0.8);
+  --color-border-light: #44403c;
+  --color-border-header: rgba(68, 64, 60, 0.5);
 
   /* --- Shadow/Effects --- */
-  --color-glow-gold: #f0a40020;
-  --color-blur-white: #ffffff15;
+  --color-glow-gold: #f0a4002a;
+  --color-blur-white: #ffffff10;
 
   /* --- Component Specific --- */
-  --color-product-card-bg: #1a1a1a;
-  --color-product-card-border: #333333;
-  --color-swiper-card-bg: rgba(26, 26, 26, 0.5);
-  --color-hero-gradient-start: rgba(0, 0, 0, 0);
-  --color-hero-gradient-end: rgba(0, 0, 0, 0.95);
-  --color-qualification-gradient-start: rgba(0, 0, 0, 0);
-  --color-qualification-gradient-end: #0a0a0a;
+  --color-product-card-bg: #1c1917;
+  --color-product-card-border: #44403c;
+  --color-swiper-card-bg: rgba(28, 25, 23, 0.5);
+  --color-hero-gradient-start: rgba(10, 9, 8, 0);
+  --color-hero-gradient-end: rgba(10, 9, 8, 0.95);
+  --color-qualification-gradient-start: rgba(10, 9, 8, 0);
+  --color-qualification-gradient-end: #12100e;
 
   /* --- Category icon filter (gold tint for dark mode - brighter) --- */
-  --filter-category-icon: invert(55%) sepia(61%) saturate(3620%) hue-rotate(28deg) brightness(95%) contrast(101%);
+  --filter-category-icon: invert(55%) sepia(61%) saturate(3620%)
+    hue-rotate(28deg) brightness(95%) contrast(101%);
 }
 
 /* ===========================
@@ -149,5 +151,8 @@
 
 /* Smooth theme transition */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
