@@ -1,5 +1,140 @@
 @import "tailwindcss";
 
+/* ===========================
+   Design System - CSS Custom Properties
+   Light/Dark Mode Support
+   =========================== */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* --- Brand Colors (constant across themes) --- */
+  --color-brand-gold-start: #8A5F00;
+  --color-brand-gold-end: #F0A500;
+  --color-brand-gold: #D19101;
+
+  /* --- Background Colors --- */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #F5F3F1;
+  --color-bg-tertiary: #f9f9f9;
+  --color-bg-dark: #000000;
+  --color-bg-card: #F5F3F1;
+  --color-bg-card-hover: #f0eeec;
+  --color-bg-header: rgba(255, 255, 255, 0.36);
+  --color-bg-header-scrolled: rgba(255, 255, 255, 0.85);
+  --color-bg-overlay: rgba(255, 255, 255, 0.1);
+  --color-bg-footer: transparent;
+
+  /* --- Text Colors --- */
+  --color-text-primary: #292929;
+  --color-text-secondary: #646464;
+  --color-text-heading: #212121;
+  --color-text-on-dark: #ffffff;
+  --color-text-on-light: #292929;
+  --color-text-muted: #666666;
+
+  /* --- Border Colors --- */
+  --color-border-primary: rgba(211, 211, 211, 1);
+  --color-border-light: #d1d5db;
+  --color-border-header: #ffffff;
+
+  /* --- Shadow/Effects --- */
+  --color-glow-gold: #f0a40036;
+  --color-blur-white: #ffffff38;
+
+  /* --- Component Specific --- */
+  --color-product-card-bg: #F5F3F1;
+  --color-product-card-border: #D3D3D3;
+  --color-swiper-card-bg: rgba(245, 243, 241, 0.31);
+  --color-hero-gradient-start: rgba(0, 0, 0, 0);
+  --color-hero-gradient-end: rgba(0, 0, 0, 0.9);
+  --color-qualification-gradient-start: rgba(0, 0, 0, 0);
+  --color-qualification-gradient-end: #292929;
+
+  /* --- Category icon filter (gold tint for light mode) --- */
+  --filter-category-icon: invert(36%) sepia(61%) saturate(3620%) hue-rotate(28deg) brightness(88%) contrast(101%);
+}
+
+.dark {
+  /* --- Background Colors --- */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #141414;
+  --color-bg-tertiary: #1a1a1a;
+  --color-bg-dark: #000000;
+  --color-bg-card: #1a1a1a;
+  --color-bg-card-hover: #252525;
+  --color-bg-header: rgba(10, 10, 10, 0.36);
+  --color-bg-header-scrolled: rgba(10, 10, 10, 0.85);
+  --color-bg-overlay: rgba(255, 255, 255, 0.1);
+  --color-bg-footer: transparent;
+
+  /* --- Text Colors --- */
+  --color-text-primary: #e5e5e5;
+  --color-text-secondary: #a0a0a0;
+  --color-text-heading: #f1f1f1;
+  --color-text-on-dark: #ffffff;
+  --color-text-on-light: #e5e5e5;
+  --color-text-muted: #8a8a8a;
+
+  /* --- Border Colors --- */
+  --color-border-primary: rgba(60, 60, 60, 1);
+  --color-border-light: #333333;
+  --color-border-header: rgba(60, 60, 60, 0.5);
+
+  /* --- Shadow/Effects --- */
+  --color-glow-gold: #f0a40020;
+  --color-blur-white: #ffffff15;
+
+  /* --- Component Specific --- */
+  --color-product-card-bg: #1a1a1a;
+  --color-product-card-border: #333333;
+  --color-swiper-card-bg: rgba(26, 26, 26, 0.5);
+  --color-hero-gradient-start: rgba(0, 0, 0, 0);
+  --color-hero-gradient-end: rgba(0, 0, 0, 0.95);
+  --color-qualification-gradient-start: rgba(0, 0, 0, 0);
+  --color-qualification-gradient-end: #0a0a0a;
+
+  /* --- Category icon filter (gold tint for dark mode - brighter) --- */
+  --filter-category-icon: invert(55%) sepia(61%) saturate(3620%) hue-rotate(28deg) brightness(95%) contrast(101%);
+}
+
+/* ===========================
+   Theme tokens for Tailwind v4
+   =========================== */
+@theme {
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-bg-tertiary: var(--color-bg-tertiary);
+  --color-bg-dark: var(--color-bg-dark);
+  --color-bg-card: var(--color-bg-card);
+  --color-bg-card-hover: var(--color-bg-card-hover);
+  --color-bg-header: var(--color-bg-header);
+  --color-bg-header-scrolled: var(--color-bg-header-scrolled);
+  --color-bg-overlay: var(--color-bg-overlay);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-heading: var(--color-text-heading);
+  --color-text-on-dark: var(--color-text-on-dark);
+  --color-text-on-light: var(--color-text-on-light);
+  --color-text-muted: var(--color-text-muted);
+
+  --color-border-primary: var(--color-border-primary);
+  --color-border-light: var(--color-border-light);
+  --color-border-header: var(--color-border-header);
+
+  --color-brand-gold-start: var(--color-brand-gold-start);
+  --color-brand-gold-end: var(--color-brand-gold-end);
+  --color-brand-gold: var(--color-brand-gold);
+
+  --color-glow-gold: var(--color-glow-gold);
+  --color-blur-white: var(--color-blur-white);
+
+  --color-product-card-bg: var(--color-product-card-bg);
+  --color-product-card-border: var(--color-product-card-border);
+  --color-swiper-card-bg: var(--color-swiper-card-bg);
+}
+
 @utility container {
   @apply mx-auto max-w-7xl px-4;
 }
@@ -10,4 +145,9 @@
 }
 .swiper-slide {
   height: auto !important;
+}
+
+/* Smooth theme transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

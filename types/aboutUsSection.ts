@@ -1,11 +1,13 @@
+import { LocalizedText } from "./i18n";
+
 export interface AboutUsSectionInterface {
   acf: {
     logo: string | false;
-    title: string;
-    description: string;
+    title: LocalizedText;
+    description: LocalizedText;
     section_link: {
       href: string;
-      text: string;
+      text: LocalizedText;
     };
     hero_image: string | false;
   };

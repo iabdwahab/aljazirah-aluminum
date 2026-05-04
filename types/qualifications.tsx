@@ -1,10 +1,12 @@
+import { LocalizedText } from "./i18n";
+
 export interface QualificationInterface {
   id: number;
   acf: {
     slide_type: "grid" | "one_column" | "two_column";
-    title?: string;
-    description?: string;
+    title?: LocalizedText;
+    description?: LocalizedText;
     image: string | false;
-    grid_data?: Record<string, string>;
+    grid_data?: Record<string, LocalizedText>;
   };
 }

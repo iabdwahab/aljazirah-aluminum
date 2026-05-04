@@ -1,52 +1,54 @@
+import { LocalizedText } from "./i18n";
+
 export interface FooterInterface {
   acf: {
     footer_logo: string | null;
     footer_column_1: {
-      column_title: string;
+      column_title: LocalizedText;
       column_links: {
         link_1: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
         link_2: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
         link_3: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
         link_4: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
         link_5: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
       };
     };
     footer_column_2: {
-      column_title: string;
+      column_title: LocalizedText;
       column_links: {
         link_1: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
         link_2: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
         link_3: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
         link_4: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
         link_5: {
-          link_text: string;
+          link_text: LocalizedText;
           link_url: string;
         };
       };

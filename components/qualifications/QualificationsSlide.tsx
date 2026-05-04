@@ -1,14 +1,24 @@
+"use client";
+
 import { QualificationInterface } from "@/types/qualifications";
+import { getLocalizedText } from "@/lib/i18n-utils";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function QualificationsSlide({
   slideData,
+  locale,
 }: {
   slideData: QualificationInterface;
+  locale: string;
 }) {
+  const t = useTranslations("QualificationsSection");
   const {
-    acf: { slide_type, image, title, description, grid_data },
+    acf: { slide_type, image },
   } = slideData;
+
+  const title = getLocalizedText(slideData.acf.title, locale);
+  const description = getLocalizedText(slideData.acf.description, locale);
 
   if (slide_type === "grid") {
     return (
@@ -17,7 +27,7 @@ export default function QualificationsSlide({
       >
         <Image
           src={image || "/qualifications/work-1.jpg"}
-          alt="Background Image"
+          alt={t("backgroundAlt")}
           className="absolute top-0 left-0 -z-20 h-full w-full object-cover"
           width={4096}
           height={2731}
@@ -29,7 +39,9 @@ export default function QualificationsSlide({
           <div
             key={index}
             className="text-xl text-white md:text-2xl"
-            dangerouslySetInnerHTML={{ __html: item }}
+            dangerouslySetInnerHTML={{
+              __html: getLocalizedText(item, locale),
+            }}
           ></div>
         ))}
       </article>
@@ -42,7 +54,7 @@ export default function QualificationsSlide({
     >
       <Image
         src={image || "/qualifications/work-1.jpg"}
-        alt="Background Image"
+        alt={t("backgroundAlt")}
         className="absolute top-0 left-0 -z-20 h-full w-full object-cover"
         width={4096}
         height={2731}

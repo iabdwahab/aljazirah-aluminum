@@ -1,15 +1,15 @@
 import Image from "next/image";
-import SectionTitle from "../global/SectionTitle";
 import PortfolioHeading from "./PortfolioHeading";
-import ContactLink from "../global/ContactLink";
+import { getTranslations } from "next-intl/server";
 
 export default async function PortfolioSection() {
+  const t = await getTranslations("PortfolioSection");
+
   const portfolioResponse = await fetch(
     `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/portfolio?per_page=100`,
   );
   const portfolioList: { id: number; acf: { image: string | false } }[] =
     await portfolioResponse.json();
-  console.log(portfolioList);
 
   const firstGroupClassNames = [
     "lg:row-span-2 lg:col-start-1",
@@ -22,8 +22,8 @@ export default async function PortfolioSection() {
   const lastGroupClassNames = ["lg:col-span-1", "lg:col-span-2"];
 
   return (
-    <section className="bg-black py-16">
-      <h2 className="hidden">معرض أعمالنا</h2>
+    <section className="bg-bg-dark py-16">
+      <h2 className="hidden">{t("title")}</h2>
       <PortfolioHeading />
 
       <div className="container space-y-4">
@@ -36,7 +36,7 @@ export default async function PortfolioSection() {
               <Image
                 key={portfolioItem.id}
                 src={portfolioItem.acf.image || "/portfolio/work-1.png"}
-                alt="صورة المعرض"
+                alt={t("imageAlt")}
                 className={`h-full w-full rounded-lg object-cover object-bottom`}
                 width={556}
                 height={388}
@@ -54,7 +54,7 @@ export default async function PortfolioSection() {
               <Image
                 key={portfolioItem.id}
                 src={portfolioItem.acf.image || "/portfolio/work-1.png"}
-                alt="صورة المعرض"
+                alt={t("imageAlt")}
                 className={`h-full w-full rounded-lg object-cover object-bottom`}
                 width={556}
                 height={388}

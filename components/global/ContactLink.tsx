@@ -1,12 +1,15 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
-export default function ContactLink() {
+export default async function ContactLink() {
+  const t = await getTranslations("ContactLink");
+
   return (
     <Link
-      href="#"
-      className="block w-fit rounded-full bg-linear-to-b from-yellow-800 to-amber-500 px-32 py-3 font-bold text-white"
+      href="/"
+      className="block w-fit rounded-full bg-linear-to-b from-brand-gold-start to-brand-gold-end px-32 py-3 font-bold text-white"
     >
-      تواصل معنا
+      {t("text")}
     </Link>
   );
 }

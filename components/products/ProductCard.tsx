@@ -5,6 +5,7 @@ interface ProductCardProps {
   title: string;
   description: string;
   image: string | false;
+  imageAlt?: string;
 }
 
 export default function ProductCard({
@@ -12,17 +13,18 @@ export default function ProductCard({
   title,
   description,
   image,
+  imageAlt = "Product image",
 }: ProductCardProps) {
   return (
     <article
-      className={`${className} relative z-10 overflow-hidden rounded-[27px] bg-[#F5F3F1] p-7`}
+      className={`${className} relative z-10 overflow-hidden rounded-[27px] bg-product-card-bg p-7`}
     >
-      <span className="absolute top-0 left-0 -z-10 h-full w-full translate-x-1/2 translate-y-1/2 rounded-full bg-[#f0a40036] blur-[212.2px]"></span>
+      <span className="absolute top-0 left-0 -z-10 h-full w-full translate-x-1/2 translate-y-1/2 rounded-full bg-glow-gold blur-[212.2px]"></span>
 
       <div>
         <Image
           src={image || "/products/product-1.svg"}
-          alt="صورة المنتج"
+          alt={imageAlt}
           width={500}
           height={300}
           className="max-h-80 w-75 max-w-full"
@@ -30,7 +32,7 @@ export default function ProductCard({
       </div>
 
       <div>
-        <h3 className="mb-3.5 text-2xl font-bold text-[#212121]">{title}</h3>
+        <h3 className="mb-3.5 text-2xl font-bold text-text-heading">{title}</h3>
         <div></div>
         <div dangerouslySetInnerHTML={{ __html: description }}></div>
 

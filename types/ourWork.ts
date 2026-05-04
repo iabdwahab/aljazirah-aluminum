@@ -1,8 +1,10 @@
+import { LocalizedText } from "./i18n";
+
 export interface OurWorkInterface {
   acf: {
     image: string | false;
-    title: string;
-    description: string;
+    title: LocalizedText;
+    description: LocalizedText;
     href?: string;
   };
 }

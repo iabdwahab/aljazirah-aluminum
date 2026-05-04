@@ -1,19 +1,23 @@
 import { FooterInterface } from "@/types/footer";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getLocale, getTranslations } from "next-intl/server";
+import { getLocalizedText } from "@/lib/i18n-utils";
 
 export default async function Footer() {
+  const locale = await getLocale();
+  const t = await getTranslations("Footer");
+
   const dataResponse = await fetch(`
     ${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/sections-info/195`);
 
   const data: FooterInterface = await dataResponse.json();
-  console.log("Footer: ", data);
 
   return (
-    <footer className="relative py-10 text-[#292929]">
+    <footer className="relative py-10 text-text-primary">
       <Image
         src={"/footer-background.png"}
-        alt={"خلفية الفوتر"}
+        alt={t("backgroundAlt")}
         width={1920}
         height={400}
         className="w-100vw absolute top-0 left-0 -z-10 h-full object-cover object-top opacity-80"
@@ -22,7 +26,7 @@ export default async function Footer() {
         <div className="mb-8 flex items-center justify-center">
           <Image
             src={data?.acf?.footer_logo || "/logo-full-with-text.svg"}
-            alt={"لوجو الشركة"}
+            alt={t("logoAlt")}
             width={311}
             height={102}
             className="h-20 w-40 object-contain md:h-40 md:w-80"
@@ -32,7 +36,10 @@ export default async function Footer() {
         <div className="flex flex-wrap items-center gap-10">
           <div>
             <h3 className="mb-6 text-xl font-bold md:text-2xl">
-              {data?.acf?.footer_column_1?.column_title}
+              {getLocalizedText(
+                data?.acf?.footer_column_1?.column_title,
+                locale,
+              )}
             </h3>
 
             <ul className="space-y-3">
@@ -40,8 +47,8 @@ export default async function Footer() {
                 data?.acf?.footer_column_1?.column_links || {},
               ).map((link, index) => (
                 <li key={index}>
-                  <Link className="font-bold" href={link.link_url}>
-                    {link.link_text}
+                  <Link className="font-bold" href={link.link_url as "/"}>
+                    {getLocalizedText(link.link_text, locale)}
                   </Link>
                 </li>
               ))}
@@ -49,7 +56,10 @@ export default async function Footer() {
           </div>
           <div>
             <h3 className="mb-6 text-xl font-bold md:text-2xl">
-              {data?.acf?.footer_column_2?.column_title}
+              {getLocalizedText(
+                data?.acf?.footer_column_2?.column_title,
+                locale,
+              )}
             </h3>
 
             <ul className="space-y-3">
@@ -57,8 +67,8 @@ export default async function Footer() {
                 data?.acf?.footer_column_2?.column_links || {},
               ).map((link, index) => (
                 <li key={index}>
-                  <Link className="font-bold" href={link.link_url}>
-                    {link.link_text}
+                  <Link className="font-bold" href={link.link_url as "/"}>
+                    {getLocalizedText(link.link_text, locale)}
                   </Link>
                 </li>
               ))}

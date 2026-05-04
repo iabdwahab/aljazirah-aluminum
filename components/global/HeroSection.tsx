@@ -1,7 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
-export default function HeroSection({
+export default async function HeroSection({
   title,
   description,
   link,
@@ -13,12 +14,14 @@ export default function HeroSection({
     text: string;
   };
 }) {
+  const t = await getTranslations("HeroSection");
+
   return (
     <main className="relative flex min-h-screen items-center bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,0.9))] bg-cover bg-center bg-no-repeat text-white">
       <span>
         <Image
           src="/home/hero-image.png"
-          alt="خلفية الهيرو"
+          alt={t("backgroundAlt")}
           fill
           className="absolute -z-10 object-cover"
         />
@@ -27,7 +30,7 @@ export default function HeroSection({
         <Image
           src="/logo-white.svg"
           className="h-25 w-25 md:h-30 md:w-30 lg:h-35 lg:w-35"
-          alt="لوجو مصنع ألمنيوم الجزيرة"
+          alt={t("logoAlt")}
           width={171}
           height={171}
         />
@@ -37,10 +40,10 @@ export default function HeroSection({
         <p className="mb-4 text-sm font-normal md:text-base">{description}</p>
 
         <Link
-          href={link?.href || "#contact"}
-          className="bg-[rgba(255, 255, 255, 0.1)] w-full max-w-62.5 rounded-full border py-4 text-sm font-bold backdrop-blur-md md:text-base"
+          href={(link?.href as "/" | "/about" | "/products") || "/"}
+          className="bg-[rgba(255,255,255,0.1)] w-full max-w-62.5 rounded-full border py-4 text-sm font-bold backdrop-blur-md md:text-base"
         >
-          {link?.text || "تواصل معنا"}
+          {link?.text || t("defaultCta")}
         </Link>
       </div>
     </main>

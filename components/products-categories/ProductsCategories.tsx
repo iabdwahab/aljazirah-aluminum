@@ -1,55 +1,61 @@
 import Image from "next/image";
 import SectionTitle from "../global/SectionTitle";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
 const categories = [
   {
     id: 1,
-    name: "النوافذ",
+    nameKey: "windows" as const,
     image: "/products_categories/1.png",
   },
   {
     id: 2,
-    name: "الأبواب",
+    nameKey: "doors" as const,
     image: "/products_categories/2.png",
   },
   {
     id: 3,
-    name: "الواجهات المعمارية",
+    nameKey: "facades" as const,
     image: "/products_categories/3.png",
   },
   {
     id: 4,
-    name: "الإنارة السماوية",
+    nameKey: "skylights" as const,
     image: "/products_categories/4.png",
   },
   {
     id: 5,
-    name: "منتجات أخرى",
+    nameKey: "other" as const,
     image: "/products_categories/5.png",
   },
 ];
 
-export default function ProductsCategories() {
+export default async function ProductsCategories() {
+  const t = await getTranslations("ProductsCategories");
+
   return (
     <section className="container my-20">
-      <SectionTitle title="أقسام المنتجات" />
+      <SectionTitle title={t("title")} />
 
       <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         {categories.map((category) => (
           <Link
             href={`/products-categories/window`}
             key={category.id}
-            className="flex flex-col items-center justify-center gap-4 rounded-xl border border-gray-300 p-10 duration-150 hover:bg-gray-100"
+            className="flex flex-col items-center justify-center gap-4 rounded-xl border border-border-light bg-bg-primary p-10 duration-150 hover:bg-bg-card-hover"
           >
             <Image
               src={category.image}
-              alt={category.name}
+              alt={t(category.nameKey)}
               width={300}
               height={200}
-              className="h-50 w-50 rounded-lg object-contain [filter:invert(36%)_sepia(61%)_saturate(3620%)_hue-rotate(28deg)_brightness(88%)_contrast(101%)]"
+              className="h-50 w-50 rounded-lg object-contain"
+              style={{ filter: "var(--filter-category-icon)" }}
             />
-            <h3 className="text-lg font-semibold">{category.name}</h3>
+            <h3 className="text-lg font-semibold text-text-primary">
+              {t(category.nameKey)}
+            </h3>
           </Link>
         ))}
       </div>

@@ -6,6 +6,8 @@ export default function SectionDescription({
   className?: string;
 }) {
   return (
-    <p className={`leading-8.25 font-medium ${className}`}>{description}</p>
+    <p className={`leading-8.25 font-medium text-text-primary ${className}`}>
+      {description}
+    </p>
   );
 }

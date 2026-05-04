@@ -1,0 +1,85 @@
+{
+  "Metadata": {
+    "title": "Al Jazirah Aluminum",
+    "description": "Keeping pace with the latest developments that comply with Gulf specifications. Al Jazirah Aluminum Factory is one of the most important factories that can be trusted for its commitment to high standards of manufacturing, installation, delivery, and service."
+  },
+  "Header": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Our Products",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "HeroSection": {
+    "logoAlt": "Al Jazirah Aluminum Factory Logo",
+    "backgroundAlt": "Hero background",
+    "defaultCta": "Contact Us"
+  },
+  "AboutUsSection": {
+    "logoAlt": "Company logo",
+    "defaultTitle": "About Us",
+    "defaultTitleMobile": "About Us",
+    "defaultDescription": "For nearly half a century of commitment to quality and design excellence, product diversity and innovation, keeping pace with the latest developments that comply with Gulf specifications. Al Jazirah Aluminum Factory is one of the most important factories that can be trusted for its commitment to high standards of manufacturing, installation, delivery, and service. Al Jazirah Aluminum Factory remains one of the largest pioneers in this industry due to its continuous efforts in self-development and improvement, which has earned us exceptional respect in the construction world. Your association with Al Jazirah Aluminum Factory saves you from searching elsewhere for solving your technical problems, and then making the right choice of products and precise designs.",
+    "defaultCta": "Contact Us",
+    "sideImageAlt": "Section side image"
+  },
+  "CustomersSection": {
+    "title": "Our Clients",
+    "customerImageAlt": "Client image"
+  },
+  "PortfolioSection": {
+    "title": "Our Portfolio",
+    "heading1": "Our Portfolioooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "heading2_mobile": "oooooooooooooo",
+    "heading2_tablet": "ooooooooooooooooooooooooooooooooo",
+    "heading2_desktop": "oooooooooooooooooooooooooooooooooooooooooo",
+    "imageAlt": "Portfolio image"
+  },
+  "ProductsCategories": {
+    "title": "Product Categories",
+    "windows": "Windows",
+    "doors": "Doors",
+    "facades": "Architectural Facades",
+    "skylights": "Skylights",
+    "other": "Other Products"
+  },
+  "ProductsSection": {
+    "title": "Our Products",
+    "imageAlt": "Product image"
+  },
+  "Footer": {
+    "logoAlt": "Company logo",
+    "backgroundAlt": "Footer background"
+  },
+  "HRSection": {
+    "iconAlt": "Section icon"
+  },
+  "QualificationsSection": {
+    "backgroundAlt": "Background image"
+  },
+  "OurWork": {
+    "imageAlt": "Work image",
+    "arrowAlt": "Arrow"
+  },
+  "ProductsCategoriesPage": {
+    "title": "Products",
+    "description": "Discover a diverse range of products that meet your needs"
+  },
+  "WindowCategoryPage": {
+    "title": "Products",
+    "description": "Discover a diverse range of products that meet your needs",
+    "sectionTitle": "Windows",
+    "itemName": "Window"
+  },
+  "ContactLink": {
+    "text": "Contact Us"
+  },
+  "ThemeToggle": {
+    "light": "Light Mode",
+    "dark": "Dark Mode"
+  },
+  "LanguageSwitch": {
+    "ar": "العربية",
+    "en": "English"
+  }
+}
