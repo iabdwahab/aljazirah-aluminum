@@ -3,11 +3,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      new URL(
-        "https://springgreen-dunlin-412818.hostingersite.com/wp-content/uploads/**",
-      ),
-    ],
+    remotePatterns: [new URL("https://alumjaz.com/wp/wp-content/uploads/**")],
     unoptimized: true,
   },
   output: "export",
