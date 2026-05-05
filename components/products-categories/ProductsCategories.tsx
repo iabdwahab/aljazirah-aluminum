@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import SectionTitle from "../global/SectionTitle";
 
 export default function ProductsCategories() {
