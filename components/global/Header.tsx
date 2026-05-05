@@ -50,6 +50,9 @@ export default function Header() {
           <li>
             <Link href="/products">{t("products")}</Link>
           </li>
+          <li>
+            <Link href="/branches">{t("branches")}</Link>
+          </li>
         </ul>
       </nav>
 
@@ -104,6 +107,11 @@ export default function Header() {
           <li>
             <Link href="/products" onClick={() => setIsOpen(false)}>
               {t("products")}
+            </Link>
+          </li>
+          <li>
+            <Link href="/branches" onClick={() => setIsOpen(false)}>
+              {t("branches")}
             </Link>
           </li>
         </ul>
