@@ -72,13 +72,11 @@ export default async function Page({
           >
             <div>
               <Image
-                src={
-                  product.acf.main_image ||
-                  "https://via.placeholder.com/400x300?text=No+Image"
-                }
+                src={product.acf.main_image || "/placeholder.png"}
                 alt={product.acf.title[locale as "en" | "ar"]}
                 width={400}
                 height={300}
+                className="max-h-100 object-contain"
               />
             </div>
             <div>
