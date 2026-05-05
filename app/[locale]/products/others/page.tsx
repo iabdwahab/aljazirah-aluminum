@@ -8,7 +8,7 @@ export default async function Page({
 }) {
   const { locale } = await params;
   const productsResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-windows`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-others`,
   );
   const productsList: {
     id: number;
@@ -31,7 +31,7 @@ export default async function Page({
     return (
       <section className="container min-h-screen pt-40">
         <h1 className="mb-4 text-3xl font-bold">
-          {locale === "en" ? `Products: Windows` : `المنتجات: النوافذ`}.
+          {locale === "en" ? `Products: Others` : `المنتجات: أخرى`}.
         </h1>
         <p className="text-lg text-gray-500">
           {locale === "en" ? "No products found." : "لم يتم العثور على منتجات."}
@@ -44,7 +44,7 @@ export default async function Page({
   return (
     <section className="container min-h-screen pt-40">
       <h1 className="mb-4 text-3xl font-bold">
-        {locale === "en" ? `Products: Windows.` : `المنتجات: النوافذ.`}.
+        {locale === "en" ? `Products: Others` : `المنتجات: أخرى`}.
       </h1>
 
       <div className="grid lg:grid-cols-2">
@@ -73,7 +73,7 @@ export default async function Page({
                 className="line-clamp-4"
               ></div>
               <Link
-                href={`/products/windows/${product.id}`}
+                href={`/products/others/${product.id}`}
                 className="bg-brand-gold-end mt-4 inline-block rounded-md px-4 py-2 font-medium text-black"
               >
                 {locale === "en" ? "View Details" : "عرض التفاصيل"}

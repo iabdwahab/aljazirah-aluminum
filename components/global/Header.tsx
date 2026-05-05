@@ -22,13 +22,13 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-5 z-50 grid w-full grid-cols-[100px_1fr] items-center rounded-2xl border border-border-header px-4 py-4 transition-colors duration-300 md:right-5 md:w-[calc(100%-40px)] md:grid-cols-[100px_1fr_auto] md:px-6 ${
+      className={`border-border-header fixed top-5 z-50 grid w-full grid-cols-[100px_1fr] items-center rounded-2xl border px-4 py-4 transition-colors duration-300 md:right-5 md:w-[calc(100%-40px)] md:grid-cols-[100px_1fr_auto] md:px-6 ${
         scrolled
           ? "bg-bg-header-scrolled backdrop-blur-md"
           : "bg-bg-header backdrop-blur-sm"
       }`}
     >
-      <div>
+      <Link href="/">
         <Image
           src="/logo-white.svg"
           alt="Logo"
@@ -36,11 +36,11 @@ export default function Header() {
           height={171}
           className="w-15"
         />
-      </div>
+      </Link>
 
       {/* Desktop nav */}
       <nav className="hidden md:flex md:justify-center">
-        <ul className="flex items-center gap-10 text-lg text-text-secondary">
+        <ul className="text-text-secondary flex items-center gap-10 text-lg">
           <li>
             <Link href="/">{t("home")}</Link>
           </li>
@@ -67,17 +67,17 @@ export default function Header() {
       >
         <div className="flex h-8 w-8 flex-col items-center justify-center gap-[5px]">
           <span
-            className={`block h-[2px] w-5 rounded bg-text-secondary transition-all duration-300 ${
+            className={`bg-text-secondary block h-[2px] w-5 rounded transition-all duration-300 ${
               isOpen ? "translate-y-[7px] rotate-45" : ""
             }`}
           />
           <span
-            className={`block h-[2px] w-5 rounded bg-text-secondary transition-all duration-300 ${
+            className={`bg-text-secondary block h-[2px] w-5 rounded transition-all duration-300 ${
               isOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block h-[2px] w-5 rounded bg-text-secondary transition-all duration-300 ${
+            className={`bg-text-secondary block h-[2px] w-5 rounded transition-all duration-300 ${
               isOpen ? "-translate-y-[7px] -rotate-45" : ""
             }`}
           />
@@ -90,7 +90,7 @@ export default function Header() {
           isOpen ? "mt-4 max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="flex flex-col items-center gap-4 text-lg text-text-secondary">
+        <ul className="text-text-secondary flex flex-col items-center gap-4 text-lg">
           <li>
             <Link href="/" onClick={() => setIsOpen(false)}>
               {t("home")}

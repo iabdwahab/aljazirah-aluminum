@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export async function generateStaticParams() {
   const productsResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-windows`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-doors`,
   );
   const productsList: {
     id: number;
@@ -25,7 +25,7 @@ export default async function Page({
 }) {
   const { locale, product_id } = await params;
   const productsResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-windows/${product_id}`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-doors/${product_id}`,
   );
   const productData: {
     acf: {
@@ -50,12 +50,12 @@ export default async function Page({
           {locale === "en" ? "Product not found." : "لم يتم العثور على المنتج."}
         </h1>
         <Link
-          href="/products/windows"
+          href="/products/doors"
           className="bg-brand-gold-end mx-auto inline-block rounded-md px-4 py-2 font-medium text-black"
         >
           {locale === "en"
-            ? "Back to Windows Products"
-            : "العودة إلى منتجات النوافذ"}
+            ? "Back to Doors Products"
+            : "العودة إلى منتجات الأبواب"}
         </Link>
       </section>
     );
@@ -65,7 +65,7 @@ export default async function Page({
   return (
     <section className="container min-h-screen pt-40">
       <h1 className="mb-4 text-3xl font-bold">
-        {locale === "en" ? `Product: Windows / ` : `المنتج: النوافذ / `}
+        {locale === "en" ? `Product: Doors / ` : `المنتج: الأبواب / `}
         <span className="text-brand-gold-end">
           {productData.acf.title[locale as "en" | "ar"]}.
         </span>

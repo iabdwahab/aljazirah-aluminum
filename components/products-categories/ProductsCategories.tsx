@@ -1,33 +1,25 @@
 import { Link } from "@/i18n/navigation";
 import SectionTitle from "../global/SectionTitle";
-
-export default function ProductsCategories() {
+import { productsCategories } from "@/local-data/products-categories";
+export default function ProductsCategories({
+  locale,
+}: {
+  locale: "en" | "ar";
+}) {
   return (
     <section className="container my-20">
       <SectionTitle title="Products Categories" />
 
       <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
-        <Link href="/products/windows" className="rounded-md border p-4">
-          Windows
-        </Link>
-        <Link href="/products/doors" className="rounded-md border p-4">
-          Doors
-        </Link>
-        <Link
-          href="/products/architectural-facades"
-          className="rounded-md border p-4"
-        >
-          Architectural facades
-        </Link>
-        <Link
-          href="/products/heavenly-illumination"
-          className="rounded-md border p-4"
-        >
-          Heavenly illumination
-        </Link>
-        <Link href="/products/others" className="rounded-md border p-4">
-          Others
-        </Link>
+        {productsCategories.map((category) => (
+          <Link
+            key={category.slug}
+            href={`/products/${category.slug}`}
+            className="rounded-md border p-4 text-center"
+          >
+            {category.title[locale as "en" | "ar"]}
+          </Link>
+        ))}
       </div>
     </section>
   );
