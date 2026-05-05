@@ -16,7 +16,7 @@ export default async function Home({
   return (
     <>
       <HomeHeroSection />
-      {/* <ProductsCategories /> */}
+      <ProductsCategories />
       {/* <ProductsSection /> */}
       <div className="container">
         <AboutUsSection type="card" />
