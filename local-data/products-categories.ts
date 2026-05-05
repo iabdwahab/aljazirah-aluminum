@@ -15,14 +15,14 @@ export const productsCategories = [
     },
   },
   {
-    slug: "architectural-facades",
+    slug: "facades",
     title: {
       en: "Architectural Facades",
       ar: "واجهات معمارية",
     },
   },
   {
-    slug: "heavenly-illumination",
+    slug: "heavillum",
     title: {
       en: "Heavenly Illumination",
       ar: "الإضاءة السماوية",
