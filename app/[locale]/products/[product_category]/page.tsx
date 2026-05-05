@@ -3,6 +3,8 @@ import { getLocale } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return productsCategories.map((category) => ({
     product_category: category.slug,
@@ -83,12 +85,12 @@ export default async function Page({
               <h3 className="mb-4 text-3xl font-semibold">
                 {product.acf.title[locale as "en" | "ar"]}
               </h3>
-              <p
+              <div
                 dangerouslySetInnerHTML={{
                   __html: product.acf.description[locale as "en" | "ar"],
                 }}
                 className="line-clamp-4"
-              ></p>
+              ></div>
               <Link
                 href={`/products/${product_category}/${index}`}
                 className="bg-brand-gold-end mt-4 inline-block rounded-md px-4 py-2 font-medium text-black"
