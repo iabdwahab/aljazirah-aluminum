@@ -42,7 +42,7 @@ export default async function Page({
       {brnachesList.map((branch) => (
         <div
           key={branch.id}
-          className="border-brand-gold-end/10 mt-12 mb-20 grid h-auto grid-cols-1 gap-8 overflow-hidden rounded-xl border shadow-lg md:grid-cols-2 lg:h-[500px] lg:gap-0"
+          className="dark:border-brand-gold-end/20 border-brand-gold-end/60 mt-12 mb-20 grid h-auto grid-cols-1 gap-8 overflow-hidden rounded-xl border shadow-lg md:grid-cols-2 lg:h-[500px] lg:gap-0"
         >
           {/* Branch Info Card */}
           <div className="bg-primary text-primary-foreground flex flex-col justify-center p-8 md:p-12">
@@ -88,6 +88,8 @@ export default async function Page({
                 </div>
               </div>
 
+              <hr className="border-gray-300/60" />
+
               {/* Working Hours */}
               <div className="flex items-start gap-5">
                 <div className="bg-background text-foreground flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
@@ -114,6 +116,8 @@ export default async function Page({
                   </p>
                 </div>
               </div>
+
+              <hr className="border-gray-300/60" />
 
               {/* Phone */}
               <div className="flex items-start gap-5">
