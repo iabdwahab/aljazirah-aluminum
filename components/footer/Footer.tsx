@@ -14,7 +14,7 @@ export default async function Footer() {
   const data: FooterInterface = await dataResponse.json();
 
   return (
-    <footer className="relative py-10 text-text-primary">
+    <footer className="text-text-primary relative py-10">
       <Image
         src={"/footer-background.png"}
         alt={t("backgroundAlt")}
@@ -23,7 +23,7 @@ export default async function Footer() {
         className="w-100vw absolute top-0 left-0 -z-10 h-full object-cover object-top opacity-80"
       />
       <div className="container">
-        <div className="mb-8 flex items-center justify-center">
+        <div className="mb-8 flex items-start justify-center">
           <Image
             src={data?.acf?.footer_logo || "/logo-full-with-text.svg"}
             alt={t("logoAlt")}
@@ -33,7 +33,7 @@ export default async function Footer() {
           />
         </div>
 
-        <div className="flex flex-wrap items-center gap-10">
+        <div className="flex flex-wrap items-start gap-10">
           <div>
             <h3 className="mb-6 text-xl font-bold md:text-2xl">
               {getLocalizedText(
