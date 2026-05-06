@@ -8,9 +8,11 @@ export default function ProductsCategories({
 }) {
   return (
     <section className="container my-20">
-      <SectionTitle title="Products Categories" />
+      <SectionTitle
+        title={locale === "en" ? "Products Categories" : "أقسام المنتجات"}
+      />
 
-      <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
+      <div className="mt-4 grid gap-4 md:grid-cols-3 lg:grid-cols-5">
         {productsCategories.map((category) => (
           <Link
             key={category.slug}
