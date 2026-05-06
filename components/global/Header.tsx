@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/branches", labelKey: "branches" },
   { href: "/gallery", labelKey: "gallery" },
   { href: "/sectors", labelKey: "sectors" },
+  { href: "/join", labelKey: "join" },
 ];
 
 export default function Header() {
