@@ -42,6 +42,45 @@
       }
     }
   },
+  "Join": {
+    "title": "Join Our Team",
+    "description": "We are always looking for talented individuals to join us. Fill out the application below.",
+    "form": {
+      "nameLabel": "Full Name",
+      "namePlaceholder": "John Doe",
+      "ageLabel": "Age",
+      "agePlaceholder": "e.g. 30",
+      "nationalityLabel": "Nationality",
+      "nationalityPlaceholder": "e.g. Saudi",
+      "addressLabel": "Address",
+      "addressPlaceholder": "Riyadh, Saudi Arabia",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "+966 50 000 0000",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "expYearsLabel": "Years of Experience",
+      "expYearsPlaceholder": "e.g. 5",
+      "specializationLabel": "Specialization",
+      "specializationPlaceholder": "e.g. Aluminum Technician",
+      "messageLabel": "Cover Letter / Message",
+      "messagePlaceholder": "Tell us why you want to join...",
+      "submitButton": "Submit Application",
+      "successMessage": "Application validation passed! (Submit prevented for now)",
+      "errors": {
+        "nameRequired": "Name is required.",
+        "ageRequired": "Age is required.",
+        "nationalityRequired": "Nationality is required.",
+        "addressRequired": "Address is required.",
+        "phoneRequired": "Phone number is required.",
+        "phoneInvalid": "Please enter a valid phone number.",
+        "emailRequired": "Email is required.",
+        "emailInvalid": "Please enter a valid email address.",
+        "expYearsRequired": "Years of experience is required.",
+        "specializationRequired": "Specialization is required.",
+        "messageRequired": "Message is required."
+      }
+    }
+  },
   "AboutUsSection": {
     "logoAlt": "Company logo",
     "defaultTitle": "About Us",

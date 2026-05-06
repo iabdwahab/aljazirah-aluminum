@@ -202,7 +202,7 @@ export default function ContactPage() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="bg-brand-gold-end hover:bg-brand-gold-start w-full rounded-lg px-4 py-3 font-medium text-black transition-colors focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900"
+              className="bg-brand-gold-end w-full cursor-pointer rounded-lg px-4 py-3 font-medium text-black transition-colors duration-300 hover:opacity-80"
             >
               {t("form.submitButton")}
             </button>

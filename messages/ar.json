@@ -42,6 +42,45 @@
       }
     }
   },
+  "Join": {
+    "title": "انضم إلى فريقنا",
+    "description": "نحن نبحث دائماً عن أفراد موهوبين للانضمام إلينا. املأ طلب التوظيف أدناه.",
+    "form": {
+      "nameLabel": "الاسم الكامل",
+      "namePlaceholder": "أحمد محمد",
+      "ageLabel": "العمر",
+      "agePlaceholder": "مثال: 30",
+      "nationalityLabel": "الجنسية",
+      "nationalityPlaceholder": "مثال: سعودي",
+      "addressLabel": "العنوان",
+      "addressPlaceholder": "الرياض، المملكة العربية السعودية",
+      "phoneLabel": "رقم الهاتف",
+      "phonePlaceholder": "+966 50 000 0000",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "ahmed@example.com",
+      "expYearsLabel": "سنوات الخبرة",
+      "expYearsPlaceholder": "مثال: 5",
+      "specializationLabel": "التخصص",
+      "specializationPlaceholder": "مثال: فني ألمنيوم",
+      "messageLabel": "رسالة / خطاب تعريف",
+      "messagePlaceholder": "أخبرنا لماذا تريد الانضمام إلينا...",
+      "submitButton": "إرسال الطلب",
+      "successMessage": "تم التحقق من صحة الطلب بنجاح! (تم منع الإرسال حالياً)",
+      "errors": {
+        "nameRequired": "الاسم مطلوب.",
+        "ageRequired": "العمر مطلوب.",
+        "nationalityRequired": "الجنسية مطلوبة.",
+        "addressRequired": "العنوان مطلوب.",
+        "phoneRequired": "رقم الهاتف مطلوب.",
+        "phoneInvalid": "يرجى إدخال رقم هاتف صحيح.",
+        "emailRequired": "البريد الإلكتروني مطلوب.",
+        "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح.",
+        "expYearsRequired": "سنوات الخبرة مطلوبة.",
+        "specializationRequired": "التخصص مطلوب.",
+        "messageRequired": "الرسالة مطلوبة."
+      }
+    }
+  },
   "AboutUsSection": {
     "logoAlt": "لوجو الشركة",
     "defaultTitle": "من نحـــن",
