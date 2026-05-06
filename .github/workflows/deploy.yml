@@ -49,5 +49,11 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
+  
+          
           # The local directory is the 'out' folder created by the build step
           local-dir: ./out/
+
+          exclude: |
+            **/_next/static/chunks/**
+            **/.next/**
