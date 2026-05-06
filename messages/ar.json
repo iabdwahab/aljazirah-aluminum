@@ -18,6 +18,30 @@
     "backgroundAlt": "خلفية الهيرو",
     "defaultCta": "تواصل معنا"
   },
+  "Contact": {
+    "title": "تواصل معنا",
+    "description": "يسعدنا الاستماع إليك. يرجى ملء هذا النموذج.",
+    "form": {
+      "nameLabel": "الاسم الكامل",
+      "namePlaceholder": "أحمد محمد",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "ahmed@example.com",
+      "phoneLabel": "رقم الهاتف",
+      "phonePlaceholder": "+966 50 000 0000",
+      "messageLabel": "الرسالة",
+      "messagePlaceholder": "كيف يمكننا مساعدتك؟",
+      "submitButton": "إرسال الرسالة",
+      "successMessage": "تم التحقق من صحة النموذج بنجاح!",
+      "errors": {
+        "nameRequired": "الاسم مطلوب.",
+        "emailRequired": "البريد الإلكتروني مطلوب.",
+        "emailInvalid": "يرجى إدخال عنوان بريد إلكتروني صحيح.",
+        "phoneRequired": "رقم الهاتف مطلوب.",
+        "phoneInvalid": "يرجى إدخال رقم هاتف صحيح.",
+        "messageRequired": "الرسالة مطلوبة."
+      }
+    }
+  },
   "AboutUsSection": {
     "logoAlt": "لوجو الشركة",
     "defaultTitle": "من نحـــن",
