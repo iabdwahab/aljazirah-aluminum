@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import Header from "@/components/global/Header";
 import Footer from "@/components/footer/Footer";
 import "../globals.css";
+import WhatsAppLink from "@/components/global/WhatsAppLink";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -79,6 +80,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider>
             <Header />
             {children}
+            <WhatsAppLink />
             <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
