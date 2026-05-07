@@ -40,13 +40,6 @@ jobs:
           # 🚨 NEXT_PUBLIC_ is needed for client-side code in Next.js
           NEXT_PUBLIC_WORDPRESS_ACF_API_URL: https://alumjaz.com/wp/wp-json/acf/v3
 
-      - name: 🧹 Delete _next folder via FTP before deploy
-        run: |
-          curl -s --ftp-create-dirs \
-            --user "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" \
-            ftp://${{ secrets.FTP_SERVER }}/public_html/_next/ \
-            -Q "RMD _next" || true
-
       # Step 5: Deploy the contents of the 'out' folder to the host via FTP/SFTP
       # We use a community action for robust file transfer.
       - name: 🚀 Deploy to Host via FTP/SFTP
