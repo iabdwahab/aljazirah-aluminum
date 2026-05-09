@@ -45,43 +45,51 @@ export default async function Page({
   return (
     <section className="container min-h-screen pt-40">
       <h1 className="mb-4 text-3xl font-bold">
-        {locale === "en" ? `Products: Doors` : `المنتجات: الأبواب`}.
+        {locale === "en" ? `Products: Doors` : `المنتجات: الأبواب`}
       </h1>
 
       <div className="grid lg:grid-cols-2">
-        {productsList.map((product, index) => (
-          <div
-            key={index}
-            className="grid grid-cols-2 items-center rounded-xl border border-gray-500/50 p-4"
-          >
-            <div>
-              <Image
-                src={product.acf.main_image || "/placeholder.png"}
-                alt={product.acf.title[locale as "en" | "ar"]}
-                width={400}
-                height={300}
-                className="max-h-100 object-contain"
-              />
+        {productsList.length === 0 ? (
+          <p className="text-center text-lg text-gray-500 lg:col-span-2">
+            {locale === "en"
+              ? "No products found."
+              : "لم يتم العثور على منتجات."}
+          </p>
+        ) : (
+          productsList.map((product, index) => (
+            <div
+              key={index}
+              className="grid grid-cols-2 items-center rounded-xl border border-gray-500/50 p-4"
+            >
+              <div>
+                <Image
+                  src={product.acf.main_image || "/placeholder.png"}
+                  alt={product.acf.title[locale as "en" | "ar"]}
+                  width={400}
+                  height={300}
+                  className="max-h-100 object-contain"
+                />
+              </div>
+              <div>
+                <h3 className="mb-4 text-3xl font-semibold">
+                  {product.acf.title[locale as "en" | "ar"]}
+                </h3>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: product.acf.description[locale as "en" | "ar"],
+                  }}
+                  className="line-clamp-4"
+                ></div>
+                <Link
+                  href={`/products/doors/${product.id}`}
+                  className="bg-brand-gold-end mt-4 inline-block rounded-md px-4 py-2 font-medium text-black"
+                >
+                  {locale === "en" ? "View Details" : "عرض التفاصيل"}
+                </Link>
+              </div>
             </div>
-            <div>
-              <h3 className="mb-4 text-3xl font-semibold">
-                {product.acf.title[locale as "en" | "ar"]}
-              </h3>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: product.acf.description[locale as "en" | "ar"],
-                }}
-                className="line-clamp-4"
-              ></div>
-              <Link
-                href={`/products/doors/${product.id}`}
-                className="bg-brand-gold-end mt-4 inline-block rounded-md px-4 py-2 font-medium text-black"
-              >
-                {locale === "en" ? "View Details" : "عرض التفاصيل"}
-              </Link>
-            </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </section>
   );
