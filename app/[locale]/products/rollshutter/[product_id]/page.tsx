@@ -35,7 +35,7 @@ export default async function Page({
 }) {
   const { locale, product_id } = await params;
   const productsResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-others/${product_id}`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-rollshutter/${product_id}`,
   );
   const productData: {
     acf: {
@@ -60,12 +60,12 @@ export default async function Page({
           {locale === "en" ? "Product not found." : "لم يتم العثور على المنتج."}
         </h1>
         <Link
-          href="/products/others"
+          href="/products/rollshutter"
           className="bg-brand-gold-end mx-auto inline-block rounded-md px-4 py-2 font-medium text-black"
         >
           {locale === "en"
-            ? "Back to Others Products"
-            : "العودة إلى منتجات أخرى"}
+            ? "Back to Rollshutter Products"
+            : "العودة إلى منتجات ستائر معدنية"}
         </Link>
       </section>
     );
@@ -75,7 +75,9 @@ export default async function Page({
   return (
     <section className="container min-h-screen pt-40">
       <h1 className="mb-4 text-3xl font-bold">
-        {locale === "en" ? `Product: Others / ` : `المنتج: أخرى / `}
+        {locale === "en"
+          ? `Product: Rollshutter / `
+          : `المنتج: ستائر معدنية / `}
         <span className="text-brand-gold-end">
           {productData.acf.title[locale as "en" | "ar"]}.
         </span>
