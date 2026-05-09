@@ -1,21 +1,46 @@
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
-  const productsResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-doors`,
-  );
-  const productsList: {
-    id: number;
-  }[] = await productsResponse.json();
+  try {
+    const productsResponse = await fetch(
+      `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-doors`,
+    );
 
-  if (!Array.isArray(productsList)) {
-    return [];
+    if (!productsResponse.ok) {
+      return [
+        {
+          product_id: "682",
+        },
+      ];
+    }
+
+    const productsList: {
+      id: number;
+    }[] = await productsResponse.json();
+
+    if (!Array.isArray(productsList) || productsList.length === 0) {
+      return [
+        {
+          product_id: "682",
+        },
+      ];
+    }
+
+    return productsList.map((product) => {
+      return {
+        product_id: product.id.toString(),
+      };
+    });
+  } catch (error) {
+    return [
+      {
+        product_id: "682",
+      },
+    ];
   }
-
-  return productsList.map((product) => ({
-    product_id: product.id.toString(),
-  }));
 }
 
 export default async function Page({
