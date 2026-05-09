@@ -33,7 +33,7 @@ export default async function Page({
         <h1 className="mb-4 text-3xl font-bold">
           {locale === "en"
             ? `Products: Heavenly Illumination`
-            : `المنتجات: الإضاءات السماوية`}
+            : `المنتجات: القبب السماوية`}
           .
         </h1>
         <p className="text-lg text-gray-500">
@@ -49,7 +49,7 @@ export default async function Page({
       <h1 className="mb-4 text-3xl font-bold">
         {locale === "en"
           ? `Products: Heavenly Illumination`
-          : `المنتجات: الإضاءات السماوية`}
+          : `المنتجات: القبب السماوية`}
         .
       </h1>
 

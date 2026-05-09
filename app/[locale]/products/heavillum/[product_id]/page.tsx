@@ -65,7 +65,7 @@ export default async function Page({
         >
           {locale === "en"
             ? "Back to Heavenly Illumination Products"
-            : "العودة إلى منتجات الإضاءات السماوية"}
+            : "العودة إلى منتجات القبب السماوية"}
         </Link>
       </section>
     );
