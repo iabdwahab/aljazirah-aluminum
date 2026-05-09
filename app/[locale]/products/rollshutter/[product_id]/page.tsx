@@ -6,7 +6,7 @@ export const dynamicParams = false;
 export async function generateStaticParams() {
   try {
     const productsResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-others`,
+      `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-rollshutter`,
     );
     if (!productsResponse.ok) {
       return [{ product_id: "682" }];

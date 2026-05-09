@@ -3,15 +3,14 @@ export const productsCategories = [
     slug: "windows",
     title: {
       en: "Windows",
-      ar: "النوافذ",
+      ar: "نوافذ",
     },
   },
-
   {
-    slug: "doors",
+    slug: "rollshutter",
     title: {
-      en: "Doors",
-      ar: "الأبواب",
+      en: "Rolling Shutters",
+      ar: "ستائر معدنية",
     },
   },
   {
@@ -25,14 +24,14 @@ export const productsCategories = [
     slug: "heavillum",
     title: {
       en: "Heavenly Illumination",
-      ar: "الإضاءة السماوية",
+      ar: "قبب سماوية",
     },
   },
   {
-    slug: "others",
+    slug: "doors",
     title: {
-      en: "Others",
-      ar: "أخرى",
+      en: "Doors",
+      ar: "أبواب الألمنيوم",
     },
   },
 ];

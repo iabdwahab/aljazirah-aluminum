@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الجزيرة للألمنيوم</title>
+    <link rel="icon" href="/logo.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-brand-gold-start: #8a5f00;
+        --color-brand-gold-end: #f0a500;
+        --color-brand-gold: #d19101;
+        --color-bg-primary: #f4f4f4;
+        --color-bg-card: #f5f3f1;
+        --color-text-primary: #292929;
+        --color-text-secondary: #646464;
+        --color-text-muted: #9ca3af;
+        --color-border-light: #e0e0e0;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-bg-primary, #f9f9f9);
+        color: var(--color-text-primary, #292929);
+        font-family:
+          "Cairo",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Decorative Background Elements */
+      .bg-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.5;
+        animation: float 10s infinite ease-in-out alternate;
+      }
+      .bg-blob.gold-1 {
+        top: -10vh;
+        right: -10vw;
+        width: 400px;
+        height: 400px;
+        background: var(--color-brand-gold-start, #8a5f00);
+      }
+      .bg-blob.gold-2 {
+        bottom: -15vh;
+        left: -10vw;
+        width: 500px;
+        height: 500px;
+        background: var(--color-brand-gold-end, #f0a500);
+        animation-delay: -5s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(20px, 30px) scale(1.1);
+        }
+      }
+
+      .container {
+        position: relative;
+        padding: 4rem 2rem;
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 24px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        max-width: 600px;
+        width: 90%;
+        z-index: 10;
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        overflow: hidden;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1.25rem;
+        background: rgba(209, 145, 1, 0.1);
+        border: 1px solid rgba(209, 145, 1, 0.2);
+        color: var(--color-brand-gold, #d19101);
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+
+      .pulse-dot {
+        position: relative;
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-brand-gold, #d19101);
+        border-radius: 50%;
+      }
+      .pulse-dot::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--color-brand-gold, #d19101);
+        border-radius: 50%;
+        animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
+
+      .logo {
+        width: 100px;
+        height: auto;
+        animation: fadeIn 1s ease forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        padding-bottom: 10px;
+        /* letter-spacing: -0.02em; */
+        background: linear-gradient(
+          135deg,
+          var(--color-brand-gold-start, #8a5f00),
+          var(--color-brand-gold-end, #f0a500)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p {
+        font-size: 1.25rem;
+        color: var(--color-text-secondary, #646464);
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+        font-weight: 600;
+      }
+
+      .footer {
+        font-size: 0.875rem;
+        color: var(--color-text-secondary, #646464);
+        opacity: 0.8;
+      }
+
+      @keyframes ping {
+        75%,
+        100% {
+          transform: scale(2.5);
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.8rem;
+        }
+        p {
+          font-size: 1.15rem;
+        }
+        .container {
+          padding: 3rem 1.5rem;
+          width: 85%;
+        }
+        .bg-blob.gold-1 {
+          width: 300px;
+          height: 300px;
+        }
+        .bg-blob.gold-2 {
+          width: 350px;
+          height: 350px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+        p {
+          font-size: 1rem;
+          margin-bottom: 1.5rem;
+          line-height: 1.5;
+        }
+        .container {
+          padding: 2rem 1.25rem;
+          border-radius: 20px;
+          width: 90%;
+        }
+        .logo {
+          max-width: 90px;
+          margin-bottom: 1.5rem;
+        }
+        .badge {
+          padding: 0.4rem 1rem;
+          font-size: 0.8rem;
+          margin-bottom: 1.5rem;
+        }
+        .bg-blob.gold-1 {
+          width: 200px;
+          height: 200px;
+          right: -20vw;
+        }
+        .bg-blob.gold-2 {
+          width: 250px;
+          height: 250px;
+          left: -20vw;
+        }
+        .footer {
+          font-size: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Abstract Backgrounds -->
+    <!-- <div class="bg-blob gold-1"></div>
+    <div class="bg-blob gold-2"></div> -->
+
+    <div class="container">
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+        "
+      >
+        <img src="./logo.svg" alt="الجزيرة للألمنيوم" class="logo" />
+
+        <h1>قريباً</h1>
+      </div>
+      <p>
+        نعمل بجد لنقدم لكم تجربة رقمية جديدة تليق بعلامتنا التجارية. انتظرونا!
+      </p>
+
+      <div class="footer">
+        &copy; 2026 الجزيرة للألمنيوم. جميع الحقوق محفوظة.
+      </div>
+    </div>
+  </body>
+</html>
