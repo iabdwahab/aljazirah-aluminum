@@ -56,7 +56,7 @@ export default async function LocaleLayout({
     <html lang={locale} dir={dir} suppressHydrationWarning>
       <head>
         {/* Prevent FOUC for dark mode */}
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -69,7 +69,7 @@ export default async function LocaleLayout({
               })();
             `,
           }}
-        />
+        /> */}
 
         <link rel="icon" type="image/x-icon" href="/logo.svg" />
       </head>

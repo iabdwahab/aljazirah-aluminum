@@ -34,4 +34,11 @@ export const productsCategories = [
       ar: "أبواب الألمنيوم",
     },
   },
+  {
+    slug: "glassrooms",
+    title: {
+      en: "Glass Rooms",
+      ar: "غرف زجاجية",
+    },
+  },
 ];
