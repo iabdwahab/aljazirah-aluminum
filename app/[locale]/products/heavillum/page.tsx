@@ -1,3 +1,4 @@
+import CategoryProductCard from "@/components/products/CategoryProductCard";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
@@ -62,37 +63,11 @@ export default async function Page({
           </p>
         ) : (
           productsList.map((product, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-2 items-center rounded-xl border border-gray-500/50 p-4"
-            >
-              <div>
-                <Image
-                  src={product.acf.main_image || "/placeholder.png"}
-                  alt={product.acf.title[locale as "en" | "ar"]}
-                  width={400}
-                  height={300}
-                  className="max-h-100 object-contain"
-                />
-              </div>
-              <div>
-                <h3 className="mb-4 text-3xl font-semibold">
-                  {product.acf.title[locale as "en" | "ar"]}
-                </h3>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: product.acf.description[locale as "en" | "ar"],
-                  }}
-                  className="line-clamp-4"
-                ></div>
-                <Link
-                  href={`/products/heavillum/${product.id}`}
-                  className="bg-brand-gold-end mt-4 inline-block rounded-md px-4 py-2 font-medium text-black"
-                >
-                  {locale === "en" ? "View Details" : "عرض التفاصيل"}
-                </Link>
-              </div>
-            </div>
+            <CategoryProductCard
+              key={product.id}
+              locale={locale}
+              product={product}
+            />
           ))
         )}
       </div>

@@ -20,7 +20,7 @@ export default async function ProjectsPage({
 
       {/* <AboutUsSection type="section" /> */}
       {/* <ProductsSwiperContainer /> */}
-      <OurWorkContainer />
+      {/* <OurWorkContainer /> */}
     </>
   );
 }
