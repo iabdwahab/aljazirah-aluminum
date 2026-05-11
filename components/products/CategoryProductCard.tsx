@@ -28,33 +28,35 @@ export default function CategoryProductCard({
   return (
     <div
       key={product.id}
-      className="grid grid-cols-2 items-center gap-4 rounded-xl border border-gray-500/50 p-4"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg md:flex-row dark:border-zinc-800 dark:bg-zinc-900"
     >
-      <div>
+      <div className="relative flex w-full items-center justify-center bg-gray-50/50 p-6 md:w-5/12 md:shrink-0 dark:bg-zinc-950/50">
         <Image
           src={product.acf.main_image || "/placeholder.png"}
           alt={product.acf.title[locale as "en" | "ar"]}
           width={400}
           height={300}
-          className="max-h-100 rounded-xl object-contain"
+          className="max-h-72 object-contain transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div>
-        <h3 className="mb-4 text-3xl font-semibold">
+      <div className="flex flex-1 flex-col p-6 md:p-8">
+        <h3 className="mb-4 text-2xl font-bold tracking-tight text-gray-900 md:text-3xl dark:text-white">
           {product.acf.title[locale as "en" | "ar"]}
         </h3>
         <div
           dangerouslySetInnerHTML={{
             __html: product.acf.description[locale as "en" | "ar"],
           }}
-          className="line-clamp-4"
+          className="mb-8 line-clamp-4 text-gray-600 dark:text-gray-300"
         ></div>
-        <Link
-          href={`/products/doors/${product.id}`}
-          className="bg-brand-gold-end mt-4 inline-block rounded-md px-4 py-2 font-medium text-black"
-        >
-          {locale === "en" ? "View Details" : "عرض التفاصيل"}
-        </Link>
+        <div className="mt-auto">
+          <Link
+            href={`/products/doors/${product.id}`}
+            className="bg-brand-gold-end inline-block rounded-lg px-6 py-2.5 font-semibold text-black shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
+          >
+            {locale === "en" ? "View Details" : "عرض التفاصيل"}
+          </Link>
+        </div>
       </div>
     </div>
   );
