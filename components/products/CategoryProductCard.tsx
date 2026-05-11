@@ -36,7 +36,7 @@ export default function CategoryProductCard({
           alt={product.acf.title[locale as "en" | "ar"]}
           width={400}
           height={300}
-          className="max-h-72 object-contain transition-transform duration-500 group-hover:scale-105"
+          className="max-h-72 rounded-xl object-contain transition-transform duration-500 group-hover:scale-105"
         />
       </div>
       <div className="flex flex-1 flex-col p-6 md:p-8">
