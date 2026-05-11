@@ -18,7 +18,7 @@ export default function CustomersList({
   const t = useTranslations("CustomersSection");
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-20">
+    <div className="flex flex-wrap items-center justify-center gap-10">
       {customersList.map((customer) => (
         <div key={customer.id}>
           <Image

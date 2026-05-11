@@ -3,6 +3,7 @@ import AboutUsSection from "@/components/aboutus-section/AboutUsSection";
 import WorkHeroSection from "@/components/HeroSections/WorkHeroSection";
 import OurWorkContainer from "@/components/our-work/OurWorkContainer";
 import ProductsSwiperContainer from "@/components/products-swiper/ProductsSwiperContainer";
+import ProductsCategories from "@/components/products-categories/ProductsCategories";
 
 export default async function ProjectsPage({
   params,
@@ -15,9 +16,11 @@ export default async function ProjectsPage({
   return (
     <>
       <WorkHeroSection />
-      <AboutUsSection type="section" />
+      <ProductsCategories locale={locale as "en" | "ar"} />
+
+      {/* <AboutUsSection type="section" /> */}
       {/* <ProductsSwiperContainer /> */}
-      {/* <OurWorkContainer /> */}
+      <OurWorkContainer />
     </>
   );
 }

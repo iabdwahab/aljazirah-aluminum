@@ -3,6 +3,7 @@ import AboutUsSection from "@/components/aboutus-section/AboutUsSection";
 import AboutHeroSection from "@/components/HeroSections/AboutHeroSection";
 import HRSection from "@/components/hr-section/HRSection";
 import QualificationsSection from "@/components/qualifications/QualificationsSection";
+import CustomersSection from "@/components/customers/CustomersSection";
 
 export default async function AboutPage({
   params,
@@ -17,6 +18,7 @@ export default async function AboutPage({
       <AboutHeroSection />
       <QualificationsSection />
       <HRSection />
+      <CustomersSection />
     </>
   );
 }

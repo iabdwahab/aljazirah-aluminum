@@ -1,5 +1,5 @@
+import PageProductCard from "@/components/products/PageProductCard";
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
 
 export const dynamicParams = false;
 
@@ -86,7 +86,6 @@ export default async function Page({
     );
   }
 
-  console.log(productData);
   return (
     <section className="container min-h-screen pt-40">
       <h1 className="mb-4 text-3xl font-bold">
@@ -97,45 +96,11 @@ export default async function Page({
       </h1>
 
       <div className="">
-        <div
-          key={product_id}
-          className="grid items-start rounded-xl border border-gray-500/50 px-4 py-10 lg:grid-cols-2"
-        >
-          <div className="lg:sticky lg:top-40">
-            <Image
-              src={productData.acf.main_image || "/placeholder.png"}
-              alt={productData.acf.title[locale as "en" | "ar"]}
-              width={400}
-              height={300}
-              className="mx-auto max-h-100 object-contain"
-            />
-          </div>
-          <div>
-            <h3 className="mb-4 text-3xl font-semibold">
-              {productData.acf.title[locale as "en" | "ar"]}
-            </h3>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: productData.acf.description[locale as "en" | "ar"],
-              }}
-            ></div>
-
-            <div className="mt-10 grid gap-4 lg:grid-cols-2">
-              {Object.values(productData.acf.more_images).map((img, idx) =>
-                img ? (
-                  <Image
-                    key={idx}
-                    src={img}
-                    alt={productData.acf.title[locale as "en" | "ar"]}
-                    width={400}
-                    height={300}
-                    className="h-100 w-full object-cover"
-                  />
-                ) : null,
-              )}
-            </div>
-          </div>
-        </div>
+        <PageProductCard
+          acf={productData.acf}
+          locale={locale}
+          id={product_id}
+        />
       </div>
     </section>
   );

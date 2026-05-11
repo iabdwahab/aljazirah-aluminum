@@ -18,8 +18,8 @@ export default async function CustomersSection() {
   const productsList: CustomerInterface[] = await productsResponse.json();
 
   return (
-    <section className="my-20">
-      <div className="container mb-10 text-center">
+    <section className="container my-20">
+      <div className="mb-10 text-center">
         <SectionTitle title={t("title")} />
       </div>
 

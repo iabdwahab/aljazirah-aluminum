@@ -1,5 +1,5 @@
 import { ProductCardInterface } from "@/types/productsCards";
-import ProductCard from "./ProductCard";
+import ProductCard from "./PageProductCard";
 import { getLocale, getTranslations } from "next-intl/server";
 import { getLocalizedText } from "@/lib/i18n-utils";
 
