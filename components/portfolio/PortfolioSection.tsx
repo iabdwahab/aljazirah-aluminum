@@ -6,7 +6,7 @@ export default async function PortfolioSection() {
   const t = await getTranslations("PortfolioSection");
 
   const portfolioResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/portfolio?per_page=100`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/gallery?per_page=7`,
   );
   const portfolioList: { id: number; acf: { image: string | false } }[] =
     await portfolioResponse.json();
