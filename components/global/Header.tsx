@@ -34,8 +34,8 @@ export default function Header() {
   return (
     <header
       className={`fixed top-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-2xl px-5 py-3 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 border-border border shadow-lg backdrop-blur-md"
+        scrolled || isOpen
+          ? "bg-background/95 border-border border shadow-lg backdrop-blur-xl"
           : "border border-transparent bg-transparent"
       }`}
     >
@@ -125,7 +125,7 @@ export default function Header() {
       >
         <div className="overflow-hidden">
           <nav className="border-border flex flex-col gap-4 border-t pt-4 pb-2">
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col items-center gap-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -138,7 +138,7 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <div className="mt-2 flex items-center gap-4 sm:hidden">
+            <div className="mt-2 flex items-center justify-center gap-4 sm:hidden">
               <LanguageSwitcher />
               <ThemeToggle />
             </div>

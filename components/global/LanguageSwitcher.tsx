@@ -20,7 +20,7 @@ export default function LanguageSwitcher() {
       aria-label={locale === "ar" ? "Switch to English" : "التبديل للعربية"}
       title={locale === "ar" ? "Switch to English" : "التبديل للعربية"}
     >
-      {locale === "ar" ? "EN" : "ع"}
+      {locale === "ar" ? "EN" : "عربي"}
     </button>
   );
 }
