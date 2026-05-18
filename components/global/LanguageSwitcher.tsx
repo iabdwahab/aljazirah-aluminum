@@ -16,7 +16,7 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={switchLocale}
-      className="flex h-9 items-center justify-center rounded-full border border-border-primary bg-bg-overlay px-3 text-xs font-bold text-text-secondary backdrop-blur-sm transition-colors duration-200 hover:bg-bg-card-hover"
+      className="border-border-primary bg-bg-overlay hover:bg-bg-card-hover flex h-9 items-center justify-center rounded-full border px-3 text-xs font-bold backdrop-blur-sm transition-colors duration-200"
       aria-label={locale === "ar" ? "Switch to English" : "التبديل للعربية"}
       title={locale === "ar" ? "Switch to English" : "التبديل للعربية"}
     >
