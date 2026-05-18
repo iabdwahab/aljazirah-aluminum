@@ -28,8 +28,8 @@ export default async function HeroSection({
       </span>
       <div className="container flex min-h-screen flex-col items-center justify-center gap-2.5 text-center md:max-w-[95%] lg:max-w-[70%]">
         <Image
-          src="/logo-white.svg"
-          className="h-25 w-25 md:h-30 md:w-30 lg:h-35 lg:w-35"
+          src="/logo-full-text-bottom.png"
+          className="h-40 w-50"
           alt={t("logoAlt")}
           width={171}
           height={171}
@@ -41,7 +41,7 @@ export default async function HeroSection({
 
         <Link
           href={(link?.href as "/" | "/about" | "/products") || "/"}
-          className="bg-[rgba(255,255,255,0.1)] w-full max-w-62.5 rounded-full border py-4 text-sm font-bold backdrop-blur-md md:text-base"
+          className="w-full max-w-62.5 rounded-full border bg-[rgba(255,255,255,0.1)] py-4 text-sm font-bold backdrop-blur-md md:text-base"
         >
           {link?.text || t("defaultCta")}
         </Link>
