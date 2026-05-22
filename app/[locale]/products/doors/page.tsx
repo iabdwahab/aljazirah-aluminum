@@ -1,6 +1,4 @@
-import CategoryProductCard from "@/components/products/CategoryProductCard";
 import { Link } from "@/i18n/navigation";
-import { productsCategories } from "@/local-data/products-categories";
 import Image from "next/image";
 
 export default async function Page({
@@ -9,62 +7,48 @@ export default async function Page({
   params: Promise<{ locale: "en" | "ar" }>;
 }) {
   const { locale } = await params;
-  const productsResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-doors`,
-  );
-  const productsList: {
-    id: number;
-    acf: {
-      title: { en: string; ar: string };
-      description: { en: string; ar: string };
-      main_image: string | false;
-      more_images: {
-        image_1: string | false;
-        image_2: string | false;
-        image_3: string | false;
-        image_4: string | false;
-        image_5: string | false;
-        image_6: string | false;
-      };
-    };
-  }[] = await productsResponse.json();
 
-  if (!Array.isArray(productsList)) {
-    return (
-      <section className="container min-h-screen pt-40">
-        <h1 className="mb-4 text-3xl font-bold">
-          {locale === "en" ? `Products: Doors` : `المنتجات: الأبواب`}.
-        </h1>
-        <p className="text-lg text-gray-500">
-          {locale === "en" ? "No products found." : "لم يتم العثور على منتجات."}
-        </p>
-      </section>
-    );
-  }
-
-  console.log(productsList);
   return (
     <section className="container min-h-screen pt-40">
-      <h1 className="mb-4 text-3xl font-bold">
+      <h1 className="mb-6 text-3xl font-bold">
         {locale === "en" ? `Products: Doors` : `المنتجات: الأبواب`}
       </h1>
 
-      <div className="grid gap-4 lg:grid-cols-2">
-        {productsList.length === 0 ? (
-          <p className="text-center text-lg text-gray-500 lg:col-span-2">
-            {locale === "en"
-              ? "No products found."
-              : "لم يتم العثور على منتجات."}
-          </p>
-        ) : (
-          productsList.map((product, index) => (
-            <CategoryProductCard
-              key={index}
-              product={product}
-              locale={locale}
+      <div className="grid gap-4 sm:grid-cols-2">
+        <Link
+          href={`/products/doors/sliding`}
+          className="flex flex-col items-center justify-between rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+        >
+          {/* <div className="flex h-3/4 w-full items-center justify-center p-4">
+            <Image
+              src={"/placeholder.png"}
+              alt={locale === "en" ? `Sliding Doors` : `أبواب سحاب`}
+              width={150}
+              height={150}
+              className="max-h-full max-w-full object-contain"
             />
-          ))
-        )}
+          </div> */}
+          <span className="text-center text-lg font-bold text-gray-800 dark:text-gray-100">
+            {locale === "en" ? `Sliding Doors` : `أبواب سحاب`}
+          </span>
+        </Link>
+        <Link
+          href={`/products/doors/hinged`}
+          className="flex flex-col items-center justify-between rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+        >
+          {/* <div className="flex h-3/4 w-full items-center justify-center p-4">
+            <Image
+              src={"/placeholder.png"}
+              alt={locale === "en" ? `Hinged Doors` : `أبواب مفصلية`}
+              width={150}
+              height={150}
+              className="max-h-full max-w-full object-contain"
+            />
+          </div> */}
+          <span className="text-center text-lg font-bold text-gray-800 dark:text-gray-100">
+            {locale === "en" ? `Hinged Doors` : `أبواب مفصلية`}
+          </span>
+        </Link>
       </div>
     </section>
   );
