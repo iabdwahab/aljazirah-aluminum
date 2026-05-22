@@ -1,8 +1,17 @@
 import Link from "next/link";
 
-export default function WhatsAppLink() {
-  const phoneNumber = "966538011998"; // Replace with actual number, e.g. 1234567890
-  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+export default async function WhatsAppLink() {
+  // https://alumjaz.com/wp/wp-json/acf/v3/posts/793
+
+  const dataResponse = await fetch(`
+    ${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/posts/793`);
+
+  const data: {
+    acf: {
+      number: string | null;
+    };
+  } = await dataResponse.json();
+  const whatsappUrl = `https://wa.me/${data.acf.number || "966538011998"}`;
 
   return (
     <Link
