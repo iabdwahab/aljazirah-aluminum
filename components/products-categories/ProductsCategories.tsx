@@ -34,7 +34,7 @@ export default async function ProductsCategories({
           <Link
             key={category.acf.slug}
             href={`/products/${category.acf.slug}`}
-            className="flex h-64 flex-col items-center justify-between rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+            className="border-brand-gold/40 flex h-64 flex-col items-center justify-between rounded-xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:bg-black/10"
           >
             <div className="flex h-3/4 w-full items-center justify-center p-4">
               <Image

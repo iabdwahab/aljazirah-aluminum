@@ -35,7 +35,7 @@ export default function Header() {
     <header
       className={`fixed top-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-2xl px-5 py-3 transition-all duration-300 ${
         scrolled || isOpen
-          ? "bg-background/95 border-border border shadow-lg backdrop-blur-xl"
+          ? "bg-background/95 border-brand-gold/40 border shadow-lg backdrop-blur-xl"
           : "border border-transparent bg-transparent"
       }`}
     >
