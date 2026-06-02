@@ -53,5 +53,13 @@ export interface FooterInterface {
         };
       };
     };
+    social_media: {
+      facebook: string;
+      instagram: string;
+      linkedin: string;
+      youtube: string;
+      whatsapp: string;
+      tiktok: string;
+    };
   };
 }
