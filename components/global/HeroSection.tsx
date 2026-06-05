@@ -28,8 +28,8 @@ export default async function HeroSection({
       </span>
       <div className="container flex min-h-screen flex-col items-center justify-center gap-2.5 text-center md:max-w-[95%] lg:max-w-[70%]">
         <Image
-          src="/logo-full-text-bottom.png"
-          className="h-40 w-50"
+          src="/logo-full-with-text.svg"
+          className="w-80"
           alt={t("logoAlt")}
           width={171}
           height={171}
