@@ -60,6 +60,7 @@ export interface FooterInterface {
       youtube: string;
       whatsapp: string;
       tiktok: string;
+      x: string;
     };
   };
 }
