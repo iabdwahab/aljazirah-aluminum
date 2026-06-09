@@ -200,6 +200,30 @@ export default async function Footer() {
                   </svg>
                 </a>
               )}
+              {data.acf.social_media.snapchat && (
+                <a
+                  href={data.acf.social_media.snapchat}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-opacity hover:opacity-80"
+                >
+                  <span className="sr-only">Snapchat</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M11.666 4.148a0.852 .852 0 0 1 .668 0c1.861 .744 3.42 2.302 4.164 4.164c.26 .65 .421 1.488 .421 2.37v.348l.74 .146c2.476 .49 3.013 1.745 2.106 3.014c-.381 .53 -.546 .83 -.606 1.483l-.004 .032l.004 .033c.125 1.155 1.54 1.706 1.54 2.872a0.76 .76 0 0 1 -.22 .546l-.007 .007c0 .001 -.225 .277 -.482 .484a8.203 8.203 0 0 1 -2.046 .982c-1.353 .497 -3.116 .314 -4.103 -.038c-.378 -.133 -.859 -.265 -1.272 -.386l-.505 -.145l-.478 .14c-.658 .197 -1.26 .365 -1.777 .532c-.987 .352 -2.75 .535 -4.103 .038a8.203 8.203 0 0 1 -2.046 -.982c-.257 -.207 -.482 -.483 -.482 -.484l-.007 -.007a0.76 .76 0 0 1 -.22 -.546c0 -1.166 1.415 -1.717 1.54 -2.872l.004 -.033l-.004 -.032c-.06 -.653 -.225 -.953 -.606 -1.483c-.907 -1.269 -.37 -2.524 2.106 -3.014l.74 -.146v-.348c0 -.882 .16 -1.72 .421 -2.37c.744 -1.862 2.303 -3.42 4.164 -4.164z" />
+                    <path d="M7 16c1 .5 2 1 5 1s4 -.5 5 -1" />
+                  </svg>
+                </a>
+              )}
             </div>
           )}
         </div>

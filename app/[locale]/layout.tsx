@@ -9,6 +9,7 @@ import Header from "@/components/global/Header";
 import Footer from "@/components/footer/Footer";
 import "../globals.css";
 import WhatsAppLink from "@/components/global/WhatsAppLink";
+import NextTopLoader from "nextjs-toploader";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
       >
         <ThemeProvider>
           <NextIntlClientProvider>
+            <NextTopLoader color="#f0a500" />
             <Header />
             {children}
             <WhatsAppLink />
