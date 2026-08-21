@@ -64,6 +64,7 @@ export default async function Page({
               key={index}
               product={product}
               locale={locale}
+              category="glassrooms"
             />
           ))
         )}

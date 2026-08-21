@@ -19,11 +19,13 @@ interface CategoryProductCardProps {
     };
   };
   locale: "en" | "ar";
+  category: string;
 }
 
 export default function CategoryProductCard({
   product,
   locale,
+  category  
 }: CategoryProductCardProps) {
   return (
     <div
@@ -51,7 +53,7 @@ export default function CategoryProductCard({
         ></div>
         <div className="mt-auto">
           <Link
-            href={`/products/doors/${product.id}`}
+            href={`/products/${category}/${product.id}`}
             className="bg-brand-gold-end inline-block rounded-lg px-6 py-2.5 font-semibold text-black shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
           >
             {locale === "en" ? "View Details" : "عرض التفاصيل"}

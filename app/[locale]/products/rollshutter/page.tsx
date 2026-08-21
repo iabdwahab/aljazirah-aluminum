@@ -62,6 +62,7 @@ export default async function Page({
               key={product.id}
               locale={locale}
               product={product}
+              category="rollshutter"
             />
           ))
         )}

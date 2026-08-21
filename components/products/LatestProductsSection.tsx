@@ -39,6 +39,7 @@ export default async function LatestProductsSection({
             key={product.id}
             locale={locale}
             product={product}
+            category={product.type}
           />
         ))}
       </div>
