@@ -19,13 +19,16 @@ export default async function page({
 
   return (
     <section className="container mt-30">
-      <h1 className="mb-4 text-3xl font-bold">
+      <h1 className="mb-6 text-3xl font-bold">
         {locale === "en" ? "Our Sectors" : "قطاعاتنا"}
       </h1>
 
       <div className="grid gap-2 overflow-hidden rounded-lg md:grid-cols-2 lg:grid-cols-4">
         {sectorsList.map((sector, index) => (
-          <div key={index} className="rounded-lg border">
+          <div
+            key={index}
+            className="border-brand-gold-start rounded-lg border"
+          >
             {sector.acf.image && (
               <Image
                 src={sector.acf.image}

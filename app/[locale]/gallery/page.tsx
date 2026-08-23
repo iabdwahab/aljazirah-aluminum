@@ -19,22 +19,19 @@ export default async function page({
 
   return (
     <section className="container py-34">
-      <h1 className="text-center text-3xl font-bold">
+      <h1 className="py-6 text-center text-3xl font-bold">
         {locale === "en" ? "Gallery" : "معرض الصور"}
       </h1>
 
-      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {galleryList.map((item, index) => (
-          <div
-            key={index}
-            className="aspect-square overflow-hidden rounded-sm border"
-          >
+          <div key={index} className="overflow-hidden rounded-sm">
             <Image
               src={item.acf.image || "/placeholder.png"}
               alt={`Gallery Image ${index + 1}`}
               width={400}
               height={400}
-              className="h-full w-full rounded-sm object-cover"
+              className="h-[300px] w-full rounded-sm object-cover"
             />
           </div>
         ))}

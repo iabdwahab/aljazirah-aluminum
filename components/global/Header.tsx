@@ -58,7 +58,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-foreground/80 hover:text-foreground text-sm font-medium transition-colors"
+                  className="hover:text-brand-gold-end text-foreground text-sm font-medium transition-colors"
                 >
                   {t(link.labelKey)}
                 </Link>
@@ -87,7 +87,7 @@ export default function Header() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-6"
+                className="h-6 w-6"
               >
                 <path
                   strokeLinecap="round"

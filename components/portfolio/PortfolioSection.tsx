@@ -1,12 +1,13 @@
 import Image from "next/image";
 import PortfolioHeading from "./PortfolioHeading";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 
 export default async function PortfolioSection() {
   const t = await getTranslations("PortfolioSection");
 
   const portfolioResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/gallery?per_page=7`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/gallery?per_page=9`,
   );
   const portfolioList: { id: number; acf: { image: string | false } }[] =
     await portfolioResponse.json();
@@ -27,17 +28,17 @@ export default async function PortfolioSection() {
       <PortfolioHeading />
 
       <div className="container space-y-4">
-        <div className="grid grid-rows-[300px] gap-4 md:grid-cols-2 lg:grid-rows-[repeat(4,300px)]">
-          {portfolioList.slice(0, 5).map((portfolioItem, index) => (
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {portfolioList.map((portfolioItem, index) => (
             <div
               key={portfolioItem.id}
-              className={`${firstGroupClassNames[index]}`}
+              // className={`${firstGroupClassNames[index]}`}
             >
               <Image
                 key={portfolioItem.id}
                 src={portfolioItem.acf.image || "/portfolio/work-1.png"}
                 alt={t("imageAlt")}
-                className={`h-full w-full rounded-lg object-cover object-bottom`}
+                className={`h-[300px] w-full rounded-lg object-fill object-center`}
                 width={556}
                 height={388}
               />
@@ -45,7 +46,7 @@ export default async function PortfolioSection() {
           ))}
         </div>
 
-        <div className="grid grid-rows-[300px] gap-4 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-[600px]">
+        {/* <div className="grid grid-rows-[300px] gap-4 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-[600px]">
           {portfolioList.slice(5).map((portfolioItem, index) => (
             <div
               key={portfolioItem.id}
@@ -61,7 +62,13 @@ export default async function PortfolioSection() {
               />
             </div>
           ))}
-        </div>
+        </div> */}
+        <Link
+          href="/gallery"
+          className="bg-brand-gold-end mx-auto mt-8 block w-fit rounded-md px-8 py-3 font-bold text-black hover:opacity-90"
+        >
+          عرض المزيد
+        </Link>
       </div>
 
       {/* <ContactLink /> */}
