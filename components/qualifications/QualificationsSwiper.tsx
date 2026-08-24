@@ -3,6 +3,7 @@ import { QualificationInterface } from "@/types/qualifications";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import QualificationsSlide from "./QualificationsSlide";
+import { Autoplay } from "swiper/modules";
 
 export default function QualificationsSwiper({
   qualificationsList,
@@ -14,18 +15,22 @@ export default function QualificationsSwiper({
   return (
     <div>
       <Swiper
+        modules={[Autoplay]}
         slidesPerView={1.15}
         spaceBetween={20}
         style={{
           transitionTimingFunction: "linear",
         }}
-        speed={5000}
+        speed={6500}
         loop={true}
         className=""
         autoplay={{
           delay: 0,
-          disableOnInteraction: true,
+
+          disableOnInteraction: false,
+          reverseDirection: false,
         }}
+        allowTouchMove={false}
       >
         {qualificationsList.map((qualificationItem) => (
           <SwiperSlide key={qualificationItem.id} className="h-full">
