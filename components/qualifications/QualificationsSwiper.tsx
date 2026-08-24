@@ -19,7 +19,13 @@ export default function QualificationsSwiper({
         style={{
           transitionTimingFunction: "linear",
         }}
+        speed={5000}
+        loop={true}
         className=""
+        autoplay={{
+          delay: 0,
+          disableOnInteraction: true,
+        }}
       >
         {qualificationsList.map((qualificationItem) => (
           <SwiperSlide key={qualificationItem.id} className="h-full">
