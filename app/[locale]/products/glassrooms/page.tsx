@@ -9,7 +9,7 @@ export default async function Page({
 }) {
   const { locale } = await params;
   const productsResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-glassrooms`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-glassrooms?per_page=100`,
   );
   const productsList: {
     id: number;

@@ -39,8 +39,14 @@ export default async function HeroSection({
         </h1>
         <p className="mb-4 text-sm font-normal md:text-base">{description}</p>
 
-        <Link
+        {/* <Link
           href={(link?.href as "/" | "/about" | "/products") || "/"}
+          className="w-full max-w-62.5 rounded-full border bg-[rgba(255,255,255,0.1)] py-4 text-sm font-bold backdrop-blur-md md:text-base"
+        >
+          {link?.text || t("defaultCta")}
+        </Link> */}
+        <Link
+          href={"/contact"}
           className="w-full max-w-62.5 rounded-full border bg-[rgba(255,255,255,0.1)] py-4 text-sm font-bold backdrop-blur-md md:text-base"
         >
           {link?.text || t("defaultCta")}

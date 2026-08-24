@@ -9,7 +9,7 @@ export default async function Page({
 }) {
   const { locale } = await params;
   const productsResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-heavillum`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/products-heavillum?per_page=200`,
   );
   const productsList: {
     id: number;
@@ -54,7 +54,7 @@ export default async function Page({
         .
       </h1>
 
-      <div className="grid lg:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         {productsList.length === 0 ? (
           <p className="text-center text-lg text-gray-500 lg:col-span-2">
             {locale === "en"

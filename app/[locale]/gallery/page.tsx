@@ -8,7 +8,7 @@ export default async function page({
   const { locale } = await params;
 
   const dataResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/gallery`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/gallery?per_page=200`,
   );
 
   const galleryList: {
@@ -31,7 +31,7 @@ export default async function page({
               alt={`Gallery Image ${index + 1}`}
               width={400}
               height={400}
-              className="h-[300px] w-full rounded-sm object-cover"
+              className="h-[300px] w-full rounded-sm object-fill"
             />
           </div>
         ))}

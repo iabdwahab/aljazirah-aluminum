@@ -8,7 +8,7 @@ export default async function page({
   const { locale } = await params;
 
   const dataResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/sectors`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_ACF_API_URL}/sectors?per_page=200`,
   );
   const sectorsList: {
     acf: {
@@ -35,7 +35,7 @@ export default async function page({
                 alt={sector.acf.title[locale]}
                 width={400}
                 height={300}
-                className="h-80 w-full rounded-t-md object-cover"
+                className="h-80 w-full rounded-t-md object-fill"
               />
             )}
             <h2 className="my-4 text-center text-xl font-bold">
