@@ -2,12 +2,12 @@ Options -MultiViews
 RewriteEngine On
 
 RewriteCond %{HTTP:Accept-Language} ^ar [NC]
-RewriteRule ^$ /ar/ [R=301,L]
+RewriteRule ^(index\.html)?$ /ar/ [R=301,L]
 
-RewriteRule ^$ /en/ [R=301,L]
+RewriteRule ^(index\.html)?$ /en/ [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [NC,L]
 
-ErrorDocument 404 /en/404.html
+ErrorDocument 404 /
