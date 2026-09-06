@@ -33,14 +33,16 @@
       "messageLabel": "الرسالة",
       "messagePlaceholder": "كيف يمكننا مساعدتك؟",
       "submitButton": "إرسال الرسالة",
-      "successMessage": "تم التحقق من صحة النموذج بنجاح!",
+      "submitting": "جاري الإرسال...",
+      "successMessage": "تم إرسال رسالتك بنجاح!",
       "errors": {
         "nameRequired": "الاسم مطلوب.",
         "emailRequired": "البريد الإلكتروني مطلوب.",
         "emailInvalid": "يرجى إدخال عنوان بريد إلكتروني صحيح.",
         "phoneRequired": "رقم الهاتف مطلوب.",
         "phoneInvalid": "يرجى إدخال رقم هاتف صحيح.",
-        "messageRequired": "الرسالة مطلوبة."
+        "messageRequired": "الرسالة مطلوبة.",
+        "submitFailed": "فشل إرسال رسالتك. يرجى المحاولة مرة أخرى."
       }
     }
   },

@@ -10,6 +10,7 @@ import Footer from "@/components/footer/Footer";
 import "../globals.css";
 import WhatsAppLink from "@/components/global/WhatsAppLink";
 import NextTopLoader from "nextjs-toploader";
+import { ToastContainer } from "react-toastify";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -84,6 +85,7 @@ export default async function LocaleLayout({
             {children}
             <WhatsAppLink />
             <Footer />
+            <ToastContainer />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
