@@ -1,81 +1,84 @@
 "use client";
 
-import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+
+interface JoinFormData {
+  name: string;
+  age: string;
+  nationality: string;
+  address: string;
+  phone: string;
+  email: string;
+  expYears: string;
+  specialization: string;
+  message: string;
+}
+
+const WORDPRESS_JOIN_FORM_URL =
+  process.env.NEXT_PUBLIC_WP_JOIN_FORM_URL ||
+  "https://alumjaz.com/wp/wp-json/contact-form-7/v1/contact-forms/1089/feedback";
 
 export default function JoinPage() {
   const t = useTranslations("Join");
 
-  const [formData, setFormData] = useState({
-    name: "",
-    age: "",
-    nationality: "",
-    address: "",
-    phone: "",
-    email: "",
-    expYears: "",
-    specialization: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<JoinFormData>({
+    defaultValues: {
+      name: "",
+      age: "",
+      nationality: "",
+      address: "",
+      phone: "",
+      email: "",
+      expYears: "",
+      specialization: "",
+      message: "",
+    },
   });
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  async function onSubmit(data: JoinFormData) {
+    const finalFormData = new FormData();
+    finalFormData.append("full-name", data.name);
+    finalFormData.append("age", data.age);
+    finalFormData.append("nationality", data.nationality);
+    finalFormData.append("address", data.address);
+    finalFormData.append("phone", data.phone);
+    finalFormData.append("email", data.email);
+    finalFormData.append("exp-years", data.expYears);
+    finalFormData.append("specialization", data.specialization);
+    finalFormData.append("message", data.message);
+    finalFormData.append("_wpcf7_unit_tag", "wpcf7-f1089-p123-o1");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
+    try {
+      const res = await fetch(WORDPRESS_JOIN_FORM_URL, {
+        method: "POST",
+        body: finalFormData,
+      });
+
+      const responseData = await res.json();
+
+      if (responseData.status === "mail_sent") {
+        toast.success(t("form.successMessage"), { position: "top-right" });
+        reset();
+      } else {
+        console.error("Error sending application:", responseData);
+        toast.error(
+          t("form.errors.submitFailed") + ` ${responseData.message ?? ""}`,
+          { position: "top-right" },
+        );
+      }
+    } catch (error) {
+      console.error("Join form submission error:", error);
+      toast.error(t("form.errors.submitFailed"), { position: "top-right" });
     }
-  };
-
-  const validate = () => {
-    const newErrors: Record<string, string> = {};
-
-    if (!formData.name.trim()) newErrors.name = t("form.errors.nameRequired");
-    if (!formData.age.trim()) newErrors.age = t("form.errors.ageRequired");
-    if (!formData.nationality.trim())
-      newErrors.nationality = t("form.errors.nationalityRequired");
-    if (!formData.address.trim())
-      newErrors.address = t("form.errors.addressRequired");
-
-    if (!formData.email.trim()) {
-      newErrors.email = t("form.errors.emailRequired");
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = t("form.errors.emailInvalid");
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = t("form.errors.phoneRequired");
-    } else if (!/^\+?[\d\s-]{7,15}$/.test(formData.phone)) {
-      newErrors.phone = t("form.errors.phoneInvalid");
-    }
-
-    if (!formData.expYears.trim())
-      newErrors.expYears = t("form.errors.expYearsRequired");
-    if (!formData.specialization.trim())
-      newErrors.specialization = t("form.errors.specializationRequired");
-    if (!formData.message.trim())
-      newErrors.message = t("form.errors.messageRequired");
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(false);
-
-    if (validate()) {
-      console.log("Job application data ready to submit:", formData);
-      setIsSubmitted(true);
-      // Reset form if desired
-      // setFormData({ name: "", age: "", nationality: "", address: "", phone: "", email: "", expYears: "", specialization: "", message: "" });
-    }
-  };
+  }
 
   return (
     <main className="container mx-auto flex min-h-screen items-center justify-center px-4 py-24 pt-32">
@@ -102,13 +105,7 @@ export default function JoinPage() {
             </p>
           </div>
 
-          {isSubmitted && (
-            <div className="mb-6 rounded-lg bg-green-50 p-4 text-center text-green-700 dark:bg-green-900/30 dark:text-green-400">
-              {t("form.successMessage")}
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               {/* Name Field */}
               <div>
@@ -121,18 +118,20 @@ export default function JoinPage() {
                 <input
                   type="text"
                   id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
+                  placeholder={t("form.namePlaceholder")}
                   className={`w-full rounded-lg border bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:outline-none dark:bg-zinc-950 dark:text-white ${
                     errors.name
                       ? "border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-blue-500 focus:ring-blue-200 dark:border-zinc-800 dark:focus:ring-blue-900"
                   }`}
-                  placeholder={t("form.namePlaceholder")}
+                  {...register("name", {
+                    required: t("form.errors.nameRequired"),
+                  })}
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.name.message}
+                  </p>
                 )}
               </div>
 
@@ -147,18 +146,21 @@ export default function JoinPage() {
                 <input
                   type="number"
                   id="age"
-                  name="age"
-                  value={formData.age}
-                  onChange={handleChange}
+                  min={18}
+                  placeholder={t("form.agePlaceholder")}
                   className={`w-full rounded-lg border bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:outline-none dark:bg-zinc-950 dark:text-white ${
                     errors.age
                       ? "border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-blue-500 focus:ring-blue-200 dark:border-zinc-800 dark:focus:ring-blue-900"
                   }`}
-                  placeholder={t("form.agePlaceholder")}
+                  {...register("age", {
+                    required: t("form.errors.ageRequired"),
+                  })}
                 />
                 {errors.age && (
-                  <p className="mt-1 text-sm text-red-500">{errors.age}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.age.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -175,19 +177,19 @@ export default function JoinPage() {
                 <input
                   type="text"
                   id="nationality"
-                  name="nationality"
-                  value={formData.nationality}
-                  onChange={handleChange}
+                  placeholder={t("form.nationalityPlaceholder")}
                   className={`w-full rounded-lg border bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:outline-none dark:bg-zinc-950 dark:text-white ${
                     errors.nationality
                       ? "border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-blue-500 focus:ring-blue-200 dark:border-zinc-800 dark:focus:ring-blue-900"
                   }`}
-                  placeholder={t("form.nationalityPlaceholder")}
+                  {...register("nationality", {
+                    required: t("form.errors.nationalityRequired"),
+                  })}
                 />
                 {errors.nationality && (
                   <p className="mt-1 text-sm text-red-500">
-                    {errors.nationality}
+                    {errors.nationality.message}
                   </p>
                 )}
               </div>
@@ -203,18 +205,20 @@ export default function JoinPage() {
                 <input
                   type="text"
                   id="address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleChange}
+                  placeholder={t("form.addressPlaceholder")}
                   className={`w-full rounded-lg border bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:outline-none dark:bg-zinc-950 dark:text-white ${
                     errors.address
                       ? "border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-blue-500 focus:ring-blue-200 dark:border-zinc-800 dark:focus:ring-blue-900"
                   }`}
-                  placeholder={t("form.addressPlaceholder")}
+                  {...register("address", {
+                    required: t("form.errors.addressRequired"),
+                  })}
                 />
                 {errors.address && (
-                  <p className="mt-1 text-sm text-red-500">{errors.address}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.address.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -231,18 +235,24 @@ export default function JoinPage() {
                 <input
                   type="email"
                   id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  placeholder={t("form.emailPlaceholder")}
                   className={`w-full rounded-lg border bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:outline-none dark:bg-zinc-950 dark:text-white ${
                     errors.email
                       ? "border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-blue-500 focus:ring-blue-200 dark:border-zinc-800 dark:focus:ring-blue-900"
                   }`}
-                  placeholder={t("form.emailPlaceholder")}
+                  {...register("email", {
+                    required: t("form.errors.emailRequired"),
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: t("form.errors.emailInvalid"),
+                    },
+                  })}
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.email.message}
+                  </p>
                 )}
               </div>
 
@@ -257,18 +267,25 @@ export default function JoinPage() {
                 <input
                   type="tel"
                   id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
+                  dir="ltr"
+                  placeholder={t("form.phonePlaceholder")}
                   className={`w-full rounded-lg border bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:outline-none dark:bg-zinc-950 dark:text-white ${
                     errors.phone
                       ? "border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-blue-500 focus:ring-blue-200 dark:border-zinc-800 dark:focus:ring-blue-900"
                   }`}
-                  placeholder={t("form.phonePlaceholder")}
+                  {...register("phone", {
+                    required: t("form.errors.phoneRequired"),
+                    pattern: {
+                      value: /^\+?[\d\s-]{7,15}$/,
+                      message: t("form.errors.phoneInvalid"),
+                    },
+                  })}
                 />
                 {errors.phone && (
-                  <p className="mt-1 text-sm text-red-500">{errors.phone}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.phone.message}
+                  </p>
                 )}
               </div>
             </div>
@@ -285,19 +302,21 @@ export default function JoinPage() {
                 <input
                   type="number"
                   id="expYears"
-                  name="expYears"
                   min="0"
-                  value={formData.expYears}
-                  onChange={handleChange}
+                  placeholder={t("form.expYearsPlaceholder")}
                   className={`w-full rounded-lg border bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:outline-none dark:bg-zinc-950 dark:text-white ${
                     errors.expYears
                       ? "border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-blue-500 focus:ring-blue-200 dark:border-zinc-800 dark:focus:ring-blue-900"
                   }`}
-                  placeholder={t("form.expYearsPlaceholder")}
+                  {...register("expYears", {
+                    required: t("form.errors.expYearsRequired"),
+                  })}
                 />
                 {errors.expYears && (
-                  <p className="mt-1 text-sm text-red-500">{errors.expYears}</p>
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.expYears.message}
+                  </p>
                 )}
               </div>
 
@@ -312,19 +331,19 @@ export default function JoinPage() {
                 <input
                   type="text"
                   id="specialization"
-                  name="specialization"
-                  value={formData.specialization}
-                  onChange={handleChange}
+                  placeholder={t("form.specializationPlaceholder")}
                   className={`w-full rounded-lg border bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:outline-none dark:bg-zinc-950 dark:text-white ${
                     errors.specialization
                       ? "border-red-500 focus:ring-red-200"
                       : "border-gray-200 focus:border-blue-500 focus:ring-blue-200 dark:border-zinc-800 dark:focus:ring-blue-900"
                   }`}
-                  placeholder={t("form.specializationPlaceholder")}
+                  {...register("specialization", {
+                    required: t("form.errors.specializationRequired"),
+                  })}
                 />
                 {errors.specialization && (
                   <p className="mt-1 text-sm text-red-500">
-                    {errors.specialization}
+                    {errors.specialization.message}
                   </p>
                 )}
               </div>
@@ -340,28 +359,31 @@ export default function JoinPage() {
               </label>
               <textarea
                 id="message"
-                name="message"
                 rows={4}
-                value={formData.message}
-                onChange={handleChange}
+                placeholder={t("form.messagePlaceholder")}
                 className={`w-full resize-none rounded-lg border bg-gray-50 px-4 py-3 text-gray-900 transition-colors focus:ring-2 focus:outline-none dark:bg-zinc-950 dark:text-white ${
                   errors.message
                     ? "border-red-500 focus:ring-red-200"
                     : "border-gray-200 focus:border-blue-500 focus:ring-blue-200 dark:border-zinc-800 dark:focus:ring-blue-900"
                 }`}
-                placeholder={t("form.messagePlaceholder")}
+                {...register("message", {
+                  required: t("form.errors.messageRequired"),
+                })}
               />
               {errors.message && (
-                <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                <p className="mt-1 text-sm text-red-500">
+                  {errors.message.message}
+                </p>
               )}
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
-              className="bg-brand-gold-end w-full cursor-pointer rounded-lg px-4 py-3 font-medium text-black transition-colors duration-300 hover:opacity-80"
+              disabled={isSubmitting}
+              className="bg-brand-gold-end w-full cursor-pointer rounded-lg px-4 py-3 font-medium text-black transition-colors duration-300 hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {t("form.submitButton")}
+              {isSubmitting ? t("form.submitting") : t("form.submitButton")}
             </button>
           </form>
         </div>

@@ -69,7 +69,8 @@
       "messageLabel": "رسالة / خطاب تعريف",
       "messagePlaceholder": "أخبرنا لماذا تريد الانضمام إلينا...",
       "submitButton": "إرسال الطلب",
-      "successMessage": "تم التحقق من صحة الطلب بنجاح! (تم منع الإرسال حالياً)",
+      "submitting": "جاري الإرسال...",
+      "successMessage": "تم إرسال طلبك بنجاح!",
       "errors": {
         "nameRequired": "الاسم مطلوب.",
         "ageRequired": "العمر مطلوب.",
@@ -81,7 +82,8 @@
         "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح.",
         "expYearsRequired": "سنوات الخبرة مطلوبة.",
         "specializationRequired": "التخصص مطلوب.",
-        "messageRequired": "الرسالة مطلوبة."
+        "messageRequired": "الرسالة مطلوبة.",
+        "submitFailed": "فشل إرسال طلبك. يرجى المحاولة مرة أخرى."
       }
     }
   },
